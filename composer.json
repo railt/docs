@@ -1,0 +1,15 @@
+{
+    "name": "railt/railt",
+    "type": "library",
+    "description": "GraphQL IDL server implementation",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "sami/sami": "~4.0"
+    },
+    "scripts": {
+        "api": "php vendor/sami/sami/sami.php update api.config.php"
+    }
+}
