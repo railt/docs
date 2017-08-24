@@ -1,7 +1,7 @@
 {
-    "name": "railt/railt",
-    "type": "library",
-    "description": "GraphQL IDL server implementation",
+    "name": "railt/docs",
+    "type": "metapackage",
+    "description": "Raild documentation",
     "license": "MIT",
     "require": {
         "php": ">=7.1"
