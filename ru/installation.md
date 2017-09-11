@@ -1,7 +1,9 @@
 # Установка
 
 - [Системные требования](/ru/installation#системные-требования)
-- [Composer](/ru/installation#composer)
+- [Установка](/ru/installation#установка)
+    - [Laravel](/ru/installation#laravel)
+    - [Agnostic](/ru/installation#agnostic)
 - [Зависимости](/ru/installation#зависимости)
 
 ## Системные требования
@@ -16,10 +18,44 @@
     
 - **Composer**
     > Руководство по установке Composer [можно найти здесь](https://getcomposer.org/download/).
-    
-## Composer
 
-- `composer require serafim/railt`
+## Установка
+
+Для установки вам потребуется [Composer](https://getcomposer.org/download/).
+
+!> Внимание, библиотека не умеет принимамать GraphQL запросы сама и полагается на существующие 
+реализации, в частности [Webonyx](https://github.com/webonyx/graphql-php) и 
+[Youshido](https://github.com/Youshido/GraphQL). Вы можете выбрать один из нужных адаптеров и 
+установить его командой: `composer require railt/xxx-adapter`, где `xxx-adapter` - `webonyx` или `youshido` 
+(поддержка на данный момент отсутсвует).
+
+### Laravel
+
+Railt поддерживает Laravel следующих версий: `5.1 LTS`, `5.2`, `5.3`, `5.4` и `5.5 LTS`,
+
+#### Laravel 5.5 or greater
+
+- `composer require railt/laravel-adapter`
+- `composer require railt/xxx-adapter`
+- `php artisan vendor:publish --tag=railt`
+
+#### Laravel 5.4 or less
+
+- `composer require railt/laravel-adapter`
+- `composer require railt/xxx-adapter`
+- Add the service provider to your app/config/app.php file:
+```php
+'providers' => [
+    // ...
+    Railt\Adapters\Laravel\RailtServiceProvider::class,
+]
+```
+- `php artisan vendor:publish --tag=railt`
+
+### Agnostic
+
+- `composer require railt/railt`
+- `composer require railt/xxx-adapter`
     
 ## Зависимости
 

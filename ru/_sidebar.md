@@ -6,9 +6,15 @@
     
 - Вступление
     - [Установка](/ru/installation)
-    - [Настройка](/ru/configuration)
     - [Быстрый старт](/ru/quickstart)
     - [Жизненный цикл](/ru/lifecycle)
+    
+- Приложение
+    - [HTTP Запрос и Ответ](/ru/http-io)
+    - [Роутинг](/ru/routes)
+    - [Контроллеры](/ru/controllers)
+    - [Декораторы](/ru/decorators)
+    - [Плагины](/ru/plugins)
     
 - GraphQL Типы
     - [Schema](/ru/schema)
@@ -20,13 +26,6 @@
     - [Directive](/ru/directive)
     - [Input](/ru/input)
     - [Extend](/ru/extend)
-    
-- Приложение
-    - [HTTP Запрос и Ответ](/ru/http-io)
-    - [Роутинг](/ru/routes)
-    - [Контроллеры](/ru/controllers)
-    - [Декораторы](/ru/decorators)
-    - [Плагины](/ru/plugins)
 
 - Интеграция
     - [Laravel](/ru/laravel)

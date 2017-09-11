@@ -6,9 +6,15 @@
     
 - Introduction
     - [Installation](/installation)
-    - [Configuration](/configuration)
     - [Quickstart](/quickstart)
     - [Life Cycle](/lifecycle)
+    
+- Application
+    - [HTTP Request and Response](/http-io)
+    - [Routing](/routes)
+    - [Controllers](/controllers)
+    - [Decorators](/decorators)
+    - [Plugins](/plugins)
     
 - GraphQL Types
     - [Schema](/schema)
@@ -20,13 +26,6 @@
     - [Directive](/directive)
     - [Input](/input)
     - [Extend](/extend)
-    
-- Application
-    - [HTTP Request and Response](/http-io)
-    - [Routing](/routes)
-    - [Controllers](/controllers)
-    - [Decorators](/decorators)
-    - [Plugins](/plugins)
 
 - Integration
     - [Laravel](/laravel)
