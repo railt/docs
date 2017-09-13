@@ -1,0 +1,13 @@
+api/* linguist-vendored
+index.html linguist-vendored
+sw.js linguist-vendored
+CNAME linguist-vendored
+
+/api export-ignore
+CNAME export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+.nojekyll export-ignore
+build.sh export-ignore
+/build export-ignore
+
