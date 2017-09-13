@@ -32,7 +32,11 @@
 реализации, в частности [Webonyx](https://github.com/webonyx/graphql-php) и 
 [Youshido](https://github.com/Youshido/GraphQL).
 
+Установка ядра:
 - `composer require railt/railt`
+
+Установка обработчика запросов:
+- `composer require railt/xxx-adapter` (например `railt/webonyx-adapter`)
 
 ### Webonyx Adapter
 
@@ -81,7 +85,7 @@ Railt поддерживает Laravel следующих версий: `5.1 LTS
 
 Railt поддерживает Symfony следующих версий: `2.7 LTS`, `2.8 LTS`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4 LTS`, `4.0`.
 
-- `composer require railt/railt/symfony-bundle`
+- `composer require railt/symfony-bundle`
 
 ### Agnostic
 
