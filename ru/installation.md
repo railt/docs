@@ -10,9 +10,6 @@
     - [Agnostic](/ru/installation#agnostic)
 - [Зависимости](/ru/installation#зависимости)
 - [Статус](/ru/installation#статус)
-    - [Railt](/ru/installation#railt-framework)
-    - [Адаптеры](/ru/installation#adapters)
-    - [Пакеты](/ru/installation#packages)
 
 ## Системные требования
 
@@ -84,7 +81,7 @@ Railt поддерживает Laravel следующих версий: `5.1 LTS
 
 Railt поддерживает Symfony следующих версий: `2.7 LTS`, `2.8 LTS`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4 LTS`, `4.0`.
 
-- `composer require railt/symfony-bundle`
+- `composer require railt/railt/symfony-bundle`
 
 ### Agnostic
 
@@ -105,65 +102,10 @@ Railt поддерживает Symfony следующих версий: `2.7 LTS
     
 ## Статус
 
-### Railt Framework
-
-<p align="center">
-    <a href="https://travis-ci.org/railt/railt"><img src="https://travis-ci.org/railt/railt.svg?branch=master" alt="Travis CI" /></a>
-    <a href="https://scrutinizer-ci.com/g/railt/railt/?branch=master"><img src="https://scrutinizer-ci.com/g/railt/railt/badges/quality-score.png?b=master" alt="Scrutinizer CI" /></a>
-    <a href="https://scrutinizer-ci.com/g/railt/railt/?branch=master"><img src="https://scrutinizer-ci.com/g/railt/railt/badges/coverage.png?b=master" alt="Code coverage" /></a>
-    <a href="https://packagist.org/packages/railt/railt"><img src="https://poser.pugx.org/railt/railt/version" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/railt/railt"><img src="https://poser.pugx.org/railt/railt/v/unstable" alt="Latest Unstable Version"></a>
-    <a href="https://raw.githubusercontent.com/railt/railt/master/LICENSE"><img src="https://poser.pugx.org/railt/railt/license" alt="License MIT"></a>
-</p>
-
-### Adapters
-
-Список поддерживаемых GraphQL адаптеров.
-
-#### Webonyx
-
-<p align="center">
-    <a href="https://travis-ci.org/railt/webonyx-adapter"><img src="https://travis-ci.org/railt/webonyx-adapter.svg?branch=master&" alt="Travis CI" /></a>
-    <a href="https://scrutinizer-ci.com/g/railt/webonyx-adapter/?branch=master"><img src="https://scrutinizer-ci.com/g/railt/webonyx-adapter/badges/quality-score.png?b=master" alt="Scrutinizer CI" /></a>
-    <a href="https://scrutinizer-ci.com/g/railt/webonyx-adapter/?branch=master"><img src="https://scrutinizer-ci.com/g/railt/webonyx-adapter/badges/coverage.png?b=master" alt="Code coverage" /></a>
-    <a href="https://packagist.org/packages/railt/webonyx-adapter"><img src="https://poser.pugx.org/railt/webonyx-adapter/version?" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/railt/webonyx-adapter"><img src="https://poser.pugx.org/railt/webonyx-adapter/v/unstable?" alt="Latest Unstable Version"></a>
-    <a href="https://raw.githubusercontent.com/railt/webonyx-adapter/master/LICENSE"><img src="https://poser.pugx.org/railt/webonyx-adapter/license?" alt="License MIT"></a>
-</p>
-
-#### Youshido
-
-<p align="center">
-    <a href="https://travis-ci.org/railt/youshido-adapter"><img src="https://travis-ci.org/railt/youshido-adapter.svg?branch=master&" alt="Travis CI" /></a>
-    <a href="https://scrutinizer-ci.com/g/railt/youshido-adapter/?branch=master"><img src="https://scrutinizer-ci.com/g/railt/youshido-adapter/badges/quality-score.png?b=master" alt="Scrutinizer CI" /></a>
-    <a href="https://scrutinizer-ci.com/g/railt/youshido-adapter/?branch=master"><img src="https://scrutinizer-ci.com/g/railt/youshido-adapter/badges/coverage.png?b=master" alt="Code coverage" /></a>
-    <a href="https://packagist.org/packages/railt/youshido-adapter"><img src="https://poser.pugx.org/railt/youshido-adapter/version?" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/railt/youshido-adapter"><img src="https://poser.pugx.org/railt/youshido-adapter/v/unstable?" alt="Latest Unstable Version"></a>
-    <a href="https://raw.githubusercontent.com/railt/youshido-adapter/master/LICENSE"><img src="https://poser.pugx.org/railt/youshido-adapter/license?" alt="License MIT"></a>
-</p>
-
-### Packages 
-
-Список поддерживаемых пакетов.
-
-#### Laravel Provider
-
-<p align="center">
-    <a href="https://travis-ci.org/railt/laravel-provider"><img src="https://travis-ci.org/railt/laravel-provider.svg?branch=master&" alt="Travis CI" /></a>
-    <a href="https://scrutinizer-ci.com/g/railt/laravel-provider/?branch=master"><img src="https://scrutinizer-ci.com/g/railt/laravel-provider/badges/quality-score.png?b=master&" alt="Scrutinizer CI" /></a>
-    <a href="https://scrutinizer-ci.com/g/railt/laravel-provider/?branch=master"><img src="https://scrutinizer-ci.com/g/railt/laravel-provider/badges/coverage.png?b=master&" alt="Code coverage" /></a>
-    <a href="https://packagist.org/packages/railt/laravel-provider"><img src="https://poser.pugx.org/railt/laravel-provider/version?" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/railt/laravel-provider"><img src="https://poser.pugx.org/railt/laravel-provider/v/unstable?" alt="Latest Unstable Version"></a>
-    <a href="https://raw.githubusercontent.com/railt/laravel-provider/master/LICENSE"><img src="https://poser.pugx.org/railt/laravel-provider/license?" alt="License MIT"></a>
-</p>
-
-#### Symfony Bundle
-
-<p align="center">
-    <a href="https://travis-ci.org/railt/symfony-bundle"><img src="https://travis-ci.org/railt/symfony-bundle.svg?branch=master&" alt="Travis CI" /></a>
-    <a href="https://scrutinizer-ci.com/g/railt/symfony-bundle/?branch=master"><img src="https://scrutinizer-ci.com/g/railt/symfony-bundle/badges/quality-score.png?b=master&" alt="Scrutinizer CI" /></a>
-    <a href="https://scrutinizer-ci.com/g/railt/symfony-bundle/?branch=master"><img src="https://scrutinizer-ci.com/g/railt/symfony-bundle/badges/coverage.png?b=master&" alt="Code coverage" /></a>
-    <a href="https://packagist.org/packages/railt/symfony-bundle"><img src="https://poser.pugx.org/railt/symfony-bundle/version?" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/railt/symfony-bundle"><img src="https://poser.pugx.org/railt/symfony-bundle/v/unstable?" alt="Latest Unstable Version"></a>
-    <a href="https://raw.githubusercontent.com/railt/symfony-bundle/master/LICENSE"><img src="https://poser.pugx.org/railt/symfony-bundle/license?" alt="License MIT"></a>
-</p>
+| Название                  | Status        | Coverage      | Quality Score | Release |
+|---------------------------|---------------|---------------|---------------|---------|
+| `railt/railt`             | ![Build Status](https://travis-ci.org/railt/railt.svg?branch=master)            | ![Code Coverage](https://scrutinizer-ci.com/g/railt/railt/badges/coverage.png?b=master) | ![Quality Score](https://scrutinizer-ci.com/g/railt/railt/badges/quality-score.png?b=master) | ![Latest Stable Version](https://poser.pugx.org/railt/railt/version) |
+| `railt/webonyx-adapter`   | ![Build Status](https://travis-ci.org/railt/webonyx-adapter.svg?branch=master)  | ![Code Coverage](https://scrutinizer-ci.com/g/railt/webonyx-adapter/badges/coverage.png?b=master) | ![Quality Score](https://scrutinizer-ci.com/g/railt/webonyx-adapter/badges/quality-score.png?b=master) | ![Latest Stable Version](https://poser.pugx.org/railt/webonyx-adapter/version) |
+| `railt/youshido-adapter`  | ![Build Status](https://travis-ci.org/railt/youshido-adapter.svg?branch=master) | ![Code Coverage](https://scrutinizer-ci.com/g/railt/youshido-adapter/badges/coverage.png?b=master) | ![Quality Score](https://scrutinizer-ci.com/g/railt/youshido-adapter/badges/quality-score.png?b=master) | ![Latest Stable Version](https://poser.pugx.org/railt/youshido-adapter/version) |
+| `railt/laravel-provider`  | ![Build Status](https://travis-ci.org/railt/laravel-provider.svg?branch=master) | ![Code Coverage](https://scrutinizer-ci.com/g/railt/laravel-provider/badges/coverage.png?b=master) | ![Quality Score](https://scrutinizer-ci.com/g/railt/laravel-provider/badges/quality-score.png?b=master) | ![Latest Stable Version](https://poser.pugx.org/railt/laravel-provider/version) |
+| `railt/symfony-bundle`          | ![Build Status](https://travis-ci.org/railt/symfony-bundle.svg?branch=master)   | ![Code Coverage](https://scrutinizer-ci.com/g/railt/symfony-bundle/badges/coverage.png?b=master) | ![Quality Score](https://scrutinizer-ci.com/g/railt/symfony-bundle/badges/quality-score.png?b=master) | ![Latest Stable Version](https://poser.pugx.org/railt/symfony-bundle/version) |
