@@ -4,7 +4,7 @@ resources/* linguist-vendored
 index.html linguist-vendored
 sw.js linguist-vendored
 CNAME linguist-vendored
-
+build.sh linguist-vendored
 /api export-ignore
 CNAME export-ignore
 .gitattributes export-ignore
