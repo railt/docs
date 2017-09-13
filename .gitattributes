@@ -1,4 +1,6 @@
 api/* linguist-vendored
+build/* linguist-vendored
+resources/* linguist-vendored
 index.html linguist-vendored
 sw.js linguist-vendored
 CNAME linguist-vendored
