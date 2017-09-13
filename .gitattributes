@@ -5,6 +5,8 @@ index.html linguist-vendored
 sw.js linguist-vendored
 CNAME linguist-vendored
 build.sh linguist-vendored
+*.md linguist-language=Markdown
+
 /api export-ignore
 CNAME export-ignore
 .gitattributes export-ignore
