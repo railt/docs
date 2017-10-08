@@ -1,12 +1,4 @@
-# HTTP Запрос и Ответ
-
-- [Описание](/ru/http-io#описание)
-- [Запросы](/ru/http-io#запросы)
-    - [Native](/ru/http-io#native)
-    - [Laravel](/ru/http-io#laravel)
-    - [Symfony](/ru/http-io#symfony)
-- [API запросов](/ru/http-io#api-запросов)
-- [Настройки запроса](/ru/http-io#настройки-запроса)
+# Запрос и Ответ
 
 ## Описание
 

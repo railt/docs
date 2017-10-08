@@ -1,8 +1,8 @@
 # Описание
 
-- [Что такое GraphQL](/ru/README#что-такое-GraphQL)
-- [Запросы](/ru/README#Запросы)
-- [Что такое Railt](/ru/README#что-такое-Railt)
+- [Что такое GraphQL](/README#что-такое-GraphQL)
+- [Запросы](/README#Запросы)
+- [Что такое Railt](/README#что-такое-Railt)
 
 ## Что такое GraphQL
 

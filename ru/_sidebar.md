@@ -1,37 +1,45 @@
-- Префикс
-    - [Описание](/ru/README.md)
-    - [Обновление](/ru/upgrade)
-    - [Участие в разработке](/ru/contributions)
-    - [API Документация](http://railt.org/api/index.html)
+- С чего начать
+    - [Описание](/README)
+    - [Установка](/installation)
+    - [Участие в разработке](/contributions)
+    - [Быстрый старт](/quickstart)
     
-- Вступление
-    - [Установка](/ru/installation)
-    - [Быстрый старт](/ru/quickstart)
-    - [Жизненный цикл](/ru/lifecycle)
-    
+- GraphQL
+    - [Схема](/schema)
+        - [Запросы](/schema/query)
+        - [Мутаторы](/schema/mutation)
+        - [Подписки](/schema/subscription)
+    - [Scalar](/scalar)
+        - [ID](/scalar/id)
+        - [Int](/scalar/int)
+        - [Float](/scalar/float)
+        - [String](/scalar/string)
+        - [Boolean](/scalar/boolean)
+        - [Any](/scalar/any)
+        - [DateTime](/scalar/date-time)
+        - [Модификаторы](/scalar/modifiers)
+        - [Создание](/scalar/custom)
+    - [Объекты](/object)
+    - [Интерфейсы](/interface)
+        - [Наследование](/interface/inheritance)
+    - [Enum](/enum)
+    - [Union](/union)
+    - [Directive](/directive)
+    - [Input](/input)
+    - [Extend](/extend)
+     
 - Приложение
-    - [HTTP Запрос и Ответ](/ru/http-io)
-    - [Роутинг](/ru/routes)
-    - [Контроллеры](/ru/controllers)
-    - [Декораторы](/ru/decorators)
-    - [Плагины](/ru/plugins)
-    
-- GraphQL Типы
-    - [Schema](/ru/schema)
-    - [Scalar](/ru/scalar)
-    - [Object](/ru/object)
-    - [Interface](/ru/interface)
-    - [Enum](/ru/enum)
-    - [Union](/ru/union)
-    - [Directive](/ru/directive)
-    - [Input](/ru/input)
-    - [Extend](/ru/extend)
+    - [Запрос и Ответ](/http-io)
+    - [Роутинг](/routes)
+    - [Контроллеры](/controllers)
+    - [Декораторы](/decorators)
+    - [Плагины](/plugins)
 
 - Интеграция
-    - [Laravel](/ru/laravel)
-    - [Symfony](/ru/symfony)
+    - [Laravel](/laravel)
+    - [Symfony](/symfony)
     
 - Суффикс
-    - [Грамматика](/ru/graphql-idl)
-    - [Рефлексия](/ru/reflection)
-    - [Адапетры](/ru/adapters)
+    - [Грамматика](/graphql-idl)
+    - [Рефлексия](/reflection)
+    - [Адапетры](/adapters)

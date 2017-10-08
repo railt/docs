@@ -1,16 +1,5 @@
 # Установка
 
-- [Системные требования](/ru/installation#системные-требования)
-- [Установка](/ru/installation#установка)
-    - [Webonyx Adapter](/ru/installation#webonyx-adapter)
-    - [Youshido Adapter](/ru/installation#youshido-adapter)
-- [Интеграция](/ru/installation#интеграция)
-    - [Laravel](/ru/installation#laravel)
-    - [Symfony](/ru/installation#symfony)
-    - [Agnostic](/ru/installation#agnostic)
-- [Зависимости](/ru/installation#зависимости)
-- [Статус](/ru/installation#статус)
-
 ## Системные требования
 
 Эта библиотека основана на современных концепциях PHP7 кода и может
@@ -22,7 +11,7 @@
     - `ext-mbstring` - поддержка мультибайтовой кодировки (`UTF-8`)
     
 - **Composer**
-    > Руководство по установке Composer [можно найти здесь](https://getcomposer.org/download/).
+> Руководство по установке Composer [можно найти здесь](https://getcomposer.org/download/).
 
 ## Установка
 
