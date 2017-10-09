@@ -1,3 +1,5 @@
+- [Назад](/)
+
 - Scalar
     - [ID](/scalar/id)
     - [Int](/scalar/int)
@@ -8,3 +10,5 @@
     - [DateTime](/scalar/date-time)
     - [Модификаторы](/scalar/modifiers)
     - [Создание](/scalar/custom)
+
+- 
