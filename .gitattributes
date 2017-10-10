@@ -1,17 +1,4 @@
-api/* linguist-vendored
-build/* linguist-vendored
-resources/* linguist-vendored
-index.html linguist-vendored
-sw.js linguist-vendored
-CNAME linguist-vendored
-build.sh linguist-vendored
 *.md linguist-language=Markdown
 
-/api export-ignore
-CNAME export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore
-.nojekyll export-ignore
-build.sh export-ignore
-/build export-ignore
-
