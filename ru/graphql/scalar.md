@@ -3,11 +3,11 @@
 Скалярный тип представляет собой примивный специфицированный тип данных, который позволяет полностью 
 описать одно целостное значение. Обычно скаляры описывают типы полей, которые содержат композитные 
 (составные) типы, такие как 
-[Объект](/graphql/object), 
-[Интерфейс](/graphql/interface), 
-[Директива](/graphql/directive), 
-[Инпут](/graphql/input) или 
-[Схема](/graphql/schema).
+[Object](/graphql/object), 
+[Interface](/graphql/interface), 
+[Directive](/graphql/directive), 
+[Input](/graphql/input) или 
+[Schema](/graphql/schema).
 
 
 GraphQL предоставляет набор стандартных скалярных типов, встроенных в язык (спецификацию).
