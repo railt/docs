@@ -1,5 +1,3 @@
-- [Назад](/)
-
 - Scalar
     - [ID](/scalar/id)
     - [Int](/scalar/int)
