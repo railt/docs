@@ -1,22 +1,11 @@
 - С чего начать
     - [Описание](/README)
     - [Установка](/installation)
-    - [Участие в разработке](/contributions)
-    - [Быстрый старт](/quickstart)
-    
-- GraphQL
-    - [Схема](/schema)
-    - [Scalar](/scalar)
-    - [Объекты](/object)
-    - [Интерфейсы](/interface)
-    - [Enum](/enum)
-    - [Union](/union)
-    - [Directive](/directive)
-    - [Input](/input)
-    - [Extend](/extend)
      
-- Приложение
-    - [Запрос и Ответ](/http-io)
+- Основы
+    - [GraphQL](/graphql)
+    - [Рефлексия](/reflection)
+    - [Запрос и Ответ](/http)
     - [Роутинг](/routes)
     - [Контроллеры](/controllers)
     - [Декораторы](/decorators)
@@ -27,6 +16,6 @@
     - [Symfony](/symfony)
     
 - Суффикс
-    - [Грамматика](/graphql-idl)
-    - [Рефлексия](/reflection)
+    - [Грамматика](/grammar)
+    - [Участие в разработке](/contributions)
     - [Адапетры](/adapters)

@@ -1,0 +1,10 @@
+- Типы
+    - [Schema](/graphql/schema)
+    - [Scalar](/graphql/scalar)
+    - [Object](/graphql/object)
+    - [Interface](/graphql/interface)
+    - [Enum](/graphql/enum)
+    - [Union](/graphql/union)
+    - [Directive](/graphql/directive)
+    - [Input](/graphql/input)
+    - [Extend](/graphql/extend)
