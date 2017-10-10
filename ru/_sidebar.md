@@ -4,6 +4,7 @@
      
 - Основы
     - [GraphQL](/graphql)
+    - [Парсинг](/parser)
     - [Рефлексия](/reflection)
     - [Запрос и Ответ](/http)
     - [Роутинг](/routes)
