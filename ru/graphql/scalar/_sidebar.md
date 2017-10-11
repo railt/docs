@@ -6,7 +6,6 @@
     - [Boolean](/graphql/scalar/boolean)
     - [Any](/graphql/scalar/any)
     - [DateTime](/graphql/scalar/date-time)
-    - [Модификаторы](/graphql/scalar/modifiers)
     - [Создание](/graphql/scalar/custom)
 
 - 
