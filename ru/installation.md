@@ -3,7 +3,7 @@
 ## Системные требования
 
 Эта библиотека основана на современных концепциях PHP7 кода и может
-отличаться в приведенных примерах вашим «представлением кода».
+отличаться в приведенных примерах вашим «представлениям кода».
 Не бойтесь - это не означает, что вы не можете использовать знакомые подходы
 к разработке программного обеспечения =)
 
@@ -55,12 +55,12 @@ Railt поддерживает Laravel следующих версий: `5.1 LTS
 
 #### Laravel 5.5 or greater
 
-- `composer require railt/laravel-provder`
+- `composer require railt/laravel-provider`
 - `php artisan vendor:publish --tag=railt`
 
 #### Laravel 5.4 or less
 
-- `composer require railt/laravel-provder`
+- `composer require railt/laravel-provider`
 - Add the service provider to your app/config/app.php file:
 ```php
 'providers' => [
