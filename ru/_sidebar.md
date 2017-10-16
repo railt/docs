@@ -16,6 +16,6 @@
     - [Symfony](/symfony)
     
 - Суффикс
-    - [Грамматика](/grammar)
-    - [Участие в разработке](/contributions)
-    - [Адапетры](/adapters)
+    - [Грамматика](/ru/graphql-idl)
+    - [Рефлексия](/ru/reflection)
+    - [Адаптеры](/ru/adapters)
