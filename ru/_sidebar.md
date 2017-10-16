@@ -35,4 +35,4 @@
 - Суффикс
     - [Грамматика](/ru/graphql-idl)
     - [Рефлексия](/ru/reflection)
-    - [Адапетры](/ru/adapters)
+    - [Адаптеры](/ru/adapters)
