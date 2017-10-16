@@ -1,0 +1,4 @@
+*.md linguist-language=Markdown
+
+.gitattributes export-ignore
+.gitignore export-ignore

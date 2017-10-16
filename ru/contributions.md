@@ -1,12 +1,5 @@
 # Участие в разработке
 
-- [Баг-репорты](/ru/contributions#баг-репорты)
-- [Обсуждение разработки](/ru/contributions#обсуждение-разработки)
-- [Уязвимости безопасности](/ru/contributions#уязвимости-безопасности)
-- [Стиль написания кода](/ru/contributions#стиль-написания-кода)
-    - [PHPDoc](/ru/contributions#phpdoc)
-    - [StyleCI](/ru/contributions#styleci)
-
 ## Баг-репорты
 
 С целью активного развития библиотеки, Railt настоятельно рекомендует создавать 
@@ -33,7 +26,7 @@
 часть кода, который потребуется для завершения реализации функционала.
 
 Неформальное обсуждение ошибок, новых и существующих возможностей проходит 
-в канале `LaravelRUS/offtop` в [Gitter-чате](https://gitter.im/LaravelRUS/offtop). 
+в канале [Discord](https://discordapp.com/invite/ND7SpD4). 
 Разработчик, обычно находится в канале по будням и выходным с 12:00 до 01:00 ночи 
 (время московское, UTC+03:00), и иногда появляется в другое время.
 
@@ -49,8 +42,16 @@ Railt придерживается стандартов:
 - [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md)
 - [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 - [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md)
+- [PSR-5](https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md)
 - [PSR-12](https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md)
 
+Помимо этого ядро поддерживает:
+- Логгирование: [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md)
+- Кеш: [PSR-6](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-6-cache.md)
+- HTTP: [PSR-7](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-7-http-message.md)
+- Контейнер: [PSR-11](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md)
+- Кеш: [PSR-16](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-16-simple-cache.md)
+ 
 
 ### PHPDoc
 
