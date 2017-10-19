@@ -1,0 +1,4 @@
+- Схема
+    - [Запросы](/sdl/schema/query)
+    - [Мутации](/sdl/schema/mutation)
+    - ~~[Подписки](/sdl/schema/subscription)~~

@@ -3,7 +3,7 @@
     - [Установка](/installation)
      
 - Основы
-    - [GraphQL](/graphql)
+    - [RL/SDL](/sdl)
     - [Рефлексия](/reflection)
     - [Запрос и Ответ](/http)
     - [Роутинг](/routes)

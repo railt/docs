@@ -1,0 +1,13 @@
+- Типы
+    - [Schema](/sdl/schema)
+    - [Object](/sdl/object)
+    - [Scalar](/sdl/scalar)
+    - [Interface](/sdl/interface)
+    - [Enum](/sdl/enum)
+    - [Union](/sdl/union)
+    - [Directive](/sdl/directive)
+    - [Input](/sdl/input)
+    - [Field](/sdl/field)
+    - [Argument](/sdl/argument)
+    - [Extend](/sdl/extend)
+    - [Модификаторы](/sdl/modifiers)

@@ -1,4 +1,0 @@
-- Схема
-    - [Запросы](/graphql/schema/query)
-    - [Мутации](/graphql/schema/mutation)
-    - ~~[Подписки](/graphql/schema/subscription)~~

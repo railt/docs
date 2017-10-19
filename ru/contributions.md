@@ -3,8 +3,8 @@
 ## Баг-репорты
 
 С целью активного развития библиотеки, Railt настоятельно рекомендует создавать 
-[пулл-реквесты](https://github.com/SerafimArts/Railt/pulls), а не только баг-репорты. 
-Баг-репорты могут быть отправлены в форме [пулл-реквеста](https://github.com/SerafimArts/Railt/pulls), 
+[пулл-реквесты](https://github.com/railt/railt/pulls), а не только баг-репорты. 
+Баг-репорты могут быть отправлены в форме [пулл-реквеста](https://github.com/railt/railt/pulls), 
 содержащего в себе ошибку прохождения юнит-тестов.
 
 Помните, что если вы отправляете баг-репорт, он должен содержать заголовок и чёткое описание 
@@ -16,12 +16,12 @@
 вашим репортом или другие побегут исправлять вашу проблему. Баг-репорт призван помочь вам и другим 
 пользователям начать совместную работу над решением проблемы.
 
-Исходный код Railt находится [на GitHub](https://github.com/SerafimArts/Railt).
+Исходный код Railt находится [на GitHub](https://github.com/railt).
 
 ## Обсуждение разработки
 
 Вы можете предложить новый функционал или улучшение существующего в 
-[обсуждениях](https://github.com/SerafimArts/Railt/issues) репозитория. 
+[обсуждениях](https://github.com/railt/railt/issues) репозитория. 
 Если вы предлагаете новый функционал, то, пожалуйста, будьте готовы написать по крайней мере 
 часть кода, который потребуется для завершения реализации функционала.
 
@@ -61,13 +61,12 @@ Railt придерживается стандартов:
 
 ```php
 /**
- * The Response Interface
- * @package Railt\Http
+ * The Response Interface.
  */
 interface ResponseInterface extends Arrayable, Renderable
 {
     /**
-     * Creates a new instance of Request
+     * Creates a new instance of Request.
      *
      * @param array $data Array of response body items
      * @param array|\Throwable[]|string[] $errors Array of response errors. 

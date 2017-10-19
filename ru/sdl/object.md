@@ -21,8 +21,8 @@ type MyObject {
 что только эти два поля — единственные, которые могут участвовать в запросах для 
 `MyObject` объекта.
 
-- [`Int`](/graphql/scalar/int) и [`String`](/graphql/scalar/string) — это 
-стандартные [скаляры GraphQL](/graphql/scalar), которые определяют тип 
+- [`Int`](/sdl/scalar/int) и [`String`](/sdl/scalar/string) — это 
+стандартные [скаляры GraphQL](/sdl/scalar), которые определяют тип 
 полей `fieldA` и `fieldB` соответственно и не могут содержать подвыборки.
 
 - `Int!` (Символ `!`) означает, что поле однозначно определено числом и 
