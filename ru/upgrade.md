@@ -1,12 +1,10 @@
-# 0.0.x (Alpha next)
+# Release notes
 
-## Compiler
+## 0.0.x (Alpha next)
 
 - Fixed arguments inheritance for `extend` definition.
 
-# 0.0.1 (Alpha 1)
-
-## Compiler
+## 0.0.1 (Alpha 1)
 
 - Basic GraphQL SDL syntax support
 - Basic Reflection API support
