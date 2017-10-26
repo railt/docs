@@ -1,5 +1,7 @@
 # Release notes
 
+-
+
 ## 0.0.x (Alpha next)
 
 - Fixed arguments inheritance for `extend` definition.
