@@ -1,11 +1,12 @@
 # Release notes
 
--
 
 ## 0.0.x (Alpha next)
 
+- .
 - Fixed arguments inheritance for `extend` definition.
 - Added override checks:
+    - .
     - Duplication of composite type `fields`.
     - Duplication of composite type `arguments`.
     - Duplication of schema `query`.
