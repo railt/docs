@@ -3,22 +3,22 @@
 Скалярный тип представляет собой примивный специфицированный тип данных, который позволяет полностью 
 описать одно целостное значение. Обычно скаляры описывают типы полей, которые содержат композитные 
 (составные) типы, такие как 
-[Object](/graphql/object), 
-[Interface](/graphql/interface), 
-[Directive](/graphql/directive), 
-[Input](/graphql/input) или 
-[Schema](/graphql/schema).
+[Object](/sdl/object), 
+[Interface](/sdl/interface), 
+[Directive](/sdl/directive), 
+[Input](/sdl/input) или 
+[Schema](/sdl/schema).
 
 
 GraphQL предоставляет набор стандартных скалярных типов, встроенных в язык (спецификацию).
 
-- [Any](/graphql/scalar/any)
-- [Boolean](/graphql/scalar/boolean)
-- [DateTime](/graphql/scalar/date-time)
-- [Float](/graphql/scalar/float)
-- [ID](/graphql/scalar/id)
-- [Int](/graphql/scalar/int)
-- [String](/graphql/scalar/string)
+- [Any](/sdl/scalar/any)
+- [Boolean](/sdl/scalar/boolean)
+- [DateTime](/sdl/scalar/date-time)
+- [Float](/sdl/scalar/float)
+- [ID](/sdl/scalar/id)
+- [Int](/sdl/scalar/int)
+- [String](/sdl/scalar/string)
 
 Иерархия типов содержит структуру наследования GraphQL типов. Таким образом можно понять, 
 что тип `Any` без потерь может содержать значение любого типа; `Float` может без потерь 
@@ -26,10 +26,10 @@ GraphQL предоставляет набор стандартных скаля�
 
 ```accord
 → Any
-    → Float
-        → Int
-    → Bool
     → String
-        → ID
-        → DateTime
+        → Float
+            → Int
+    → Bool
+    → ID
+    → DateTime
 ```
