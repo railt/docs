@@ -1,22 +1,30 @@
 # Release notes
 
 
-## 0.0.x (Alpha next)
+## 0.0.2 (Alpha 2)
 
-- .
-- Fixed arguments inheritance for `extend` definition.
-- Added override checks:
-    1. Duplication of composite type `fields`.
-    2. Duplication of composite type `arguments`.
-    3. Duplication of schema `query`.
-    4. Duplication of schema `mutation`.
-    5. Duplication of schema `subscription`.
-- Removed lazy compilation (increased sampling rate).
-- Added jit-compilation of dependent types.
-- The type validation classes is restructured.
+-.
+- Исправлено определение аргументов для типа `extend`.
+- Добавлены проверки переопределения:
+    1. Дублирование составных типов `fields`.
+    2. Дублирование составных типов `arguments`.
+    3. Дублирование схемы `query`.
+    4. Дублирование схемы `mutation`.
+    5. Дублирование схемы `subscription`.
+- Удалена ленивая компиляция.
+- Добавлена jit-компиляция зависимых типов.
+- Реструктуризация валидаторов.
+- Исправлены LSP проверки при наследовании (были допущены ошибки в аргументах типов).
+- Добавлена поддежка наследования скаляров (базовая поддержка алгебраических типов).
+- Добавлен стектрейс вызовов.
+- Реструктурированы исключения и добавлен GraphQL стектрейс.
+- Изменена цепочка наследования скаляров (теперь `String` является базовым для остальных).
+
+
+
 
 ## 0.0.1 (Alpha 1)
 
-- Basic GraphQL SDL syntax support.
-- Basic Reflection API support.
-- PSR-6/PSR-16 Cache layer.
+- Поддержка стандартного синтаксиса GraphQL SDL.
+- Базовая поддержка Reflection API.
+- Базовая аоддержка драйверов кэша PSR-6/PSR-16.
