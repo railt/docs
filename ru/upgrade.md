@@ -19,7 +19,15 @@
 - Добавлен стектрейс вызовов.
 - Реструктурированы исключения и добавлен GraphQL стектрейс.
 - Изменена цепочка наследования скаляров (теперь `String` является базовым для остальных).
-
+- Изменения `Compiler API`:
+    1. `registerAutoloader(\Closure $then)` переименован в `autoload(\Closure $then)`
+    2. Добавлен метод `getValidator(string $group)`
+    3. Добавлен метод `getDictionary()`
+    4. Добавлен метод `getStack()()`
+    5. Изменена сигнатура `get(string $name, ?Document $document)` на `get(string $name)`
+    6. Изменена сигнатура `all(?Document $document)` на `all()`
+    7. Изменена сигнатура `has(string $name, ?Document $document)` на `has(string $name)`
+    8. Убран метод `dump(TreeNode $ast)`
 
 
 
