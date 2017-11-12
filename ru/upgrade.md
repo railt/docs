@@ -28,7 +28,16 @@
     6. Изменена сигнатура `all(?Document $document)` на `all()`
     7. Изменена сигнатура `has(string $name, ?Document $document)` на `has(string $name)`
     8. Убран метод `dump(TreeNode $ast)`
-
+- Изменения `Reflection API`:
+    1. Удалён метод `Document::getTypes(?string $typeOf)`
+    2. Добавлен метод `Document::getTypeDefinitions()`
+    3. Изменена сигнатруа метода `Document::getDefinition(string $name)` на `Document::getTypeDefinition(string $name)`
+    4. Изменена сигнатруа метода `Document::hasDefinition(string $name)` на `Document::hasTypeDefinition(string $name)`
+    5. Изменена сигнатруа метода `Document::getNumberOfDefinitions()` на `Document::getNumberOfTypeDefinitions()`
+    6. Добавлен метод `Document::getFile()`
+    7. Добавлен метод `Document::getDefinitions()`
+    8. Добавлен метод `Document::getContents()`
+    9. Изменена сигнатруа метода `Invokable::getDefinition()` на `Invokable::getTypeDefinition()`
 
 
 ## 0.0.1 (Alpha 1)
