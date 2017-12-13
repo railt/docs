@@ -1,7 +1,7 @@
 - С чего начать
     - [Описание](/README)
     - [Установка](/installation)
-     
+
 - Основы
     - [RL/SDL](/sdl)
     - [Рефлексия](/reflection)
@@ -14,7 +14,7 @@
 - Интеграция
     - [Laravel](/laravel)
     - [Symfony](/symfony)
-    
+
 - Суффикс
     - [Грамматика](/grammar)
     - [Участие в разработке](/contributions)
