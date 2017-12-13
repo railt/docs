@@ -1,4 +1,4 @@
-- Типы
+- ## Типы
     - [Schema](/sdl/schema)
     - [Object](/sdl/object)
     - [Scalar](/sdl/scalar)
