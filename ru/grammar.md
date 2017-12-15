@@ -329,12 +329,8 @@ Documentation:
 
 SchemaDefinitionBody:
     (
-        SchemaDefinitionMutation()
+        SchemaDefinitionQuery()
             |
-        SchemaDefinitionSubscription()
-    )*
-    SchemaDefinitionQuery()
-    (
         SchemaDefinitionMutation()
             |
         SchemaDefinitionSubscription()
@@ -414,7 +410,7 @@ SchemaDefinitionFieldValue:
     Documentation()?
     ::T_INPUT:: Name() Directive()*
     ::T_BRACE_OPEN::
-        InputDefinitionField()+
+        InputDefinitionField()*
     ::T_BRACE_CLOSE::
 
 InputDefinitionField:
@@ -630,7 +626,7 @@ InterfaceDefinitionFieldKey:
     Documentation()?
     ::T_ENUM:: Name() Directive()*
     ::T_BRACE_OPEN::
-        EnumField()+
+        EnumField()*
     ::T_BRACE_CLOSE::
 
 EnumField:
@@ -770,5 +766,5 @@ DirectiveArguments:
 DirectivePair:
     Key() ::T_COLON:: Value()
     #Argument
-
+    
 ```
