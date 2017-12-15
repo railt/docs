@@ -2,7 +2,7 @@
     - [Описание](/README)
     - [Установка](/installation)
 - ## RL/SDL
-    - [Что такое GraphQL SDL](/sdl)
+    - [GraphQL SDL](/sdl)
     - [Schema](/sdl/schema)
     - [Object](/sdl/object)
     - [Scalar](/sdl/scalar)
