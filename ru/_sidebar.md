@@ -1,8 +1,21 @@
 - ## С чего начать
     - [Описание](/README)
     - [Установка](/installation)
+- ## RL/SDL
+    - [Что такое GraphQL SDL](/sdl)
+    - [Schema](/sdl/schema)
+    - [Object](/sdl/object)
+    - [Scalar](/sdl/scalar)
+    - [Interface](/sdl/interface)
+    - [Enum](/sdl/enum)
+    - [Union](/sdl/union)
+    - [Directive](/sdl/directive)
+    - [Input](/sdl/input)
+    - [Field](/sdl/field)
+    - [Argument](/sdl/argument)
+    - [Extend](/sdl/extend)
+    - [Модификаторы](/sdl/modifiers)
 - ## Основы
-    - [RL/SDL](/sdl)
     - [Рефлексия](/reflection)
     - [Запрос и Ответ](/http)
     - [Роутинг](/routes)
