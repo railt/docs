@@ -1,0 +1,2 @@
+- ## Диалект
+    - [Алгебраические типы](/sdl-improvements/algebraic-types)
