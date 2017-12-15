@@ -3,7 +3,7 @@
     - [Установка](/installation)
 - ## RL/SDL
     - [GraphQL SDL](/sdl)
-    - [Отличия от стандарта](/sdl-improvements)
+    - [Диалект](/sdl-improvements)
 - ## Основы
     - [Рефлексия](/reflection)
     - [Запрос и Ответ](/http)
