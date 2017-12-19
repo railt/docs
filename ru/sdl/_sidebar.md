@@ -1,3 +1,6 @@
+- ## Синтаксис
+    - [Комментарии](/sdl/comments)
+    
 - ## Типы
     - [Schema](/sdl/schema)
     - [Object](/sdl/object)

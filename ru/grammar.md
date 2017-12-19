@@ -1,4 +1,4 @@
-# GraphQL IDL
+# GraphQL RL/SDL
 
 Ниже находится исполняемая грамматика GraphQL используемая в Railt
 
