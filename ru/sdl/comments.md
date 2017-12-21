@@ -63,8 +63,8 @@ type User {
     login: String!
     
     # ====================== TODO ======================
-    #  Надо потом будет поменять с типа "String" на тип
-    #  "DateTime" для полей "createdAt" и "updatedAt"
+    #  Надо потом будет поменять с типа 'String' на тип
+    #  'DateTime' для полей 'createdAt' и 'updatedAt'
     # ==================================================
     """
     Creation date of the User in the format RFC3339.
