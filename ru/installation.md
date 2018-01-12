@@ -60,28 +60,28 @@ Railt поддерживает Symfony следующих версий: `2.8 LTS
 Опционально:
 
 - [psr/cache-implementation](https://packagist.org/packages/psr/cache-implementation)
-    ?> Реализация PSR-6 драйвера кеша.
+    > Реализация PSR-6 драйвера кеша.
 
 - [psr/simple-cache-implementation](https://packagist.org/packages/psr/simple-cache-implementation)
-    ?> Реализация PSR-16 драйвера кеша.
+    > Реализация PSR-16 драйвера кеша.
     
 - [monolog/monolog](https://packagist.org/packages/monolog/monolog)
-    ?> Реализация PSR-3 драйвера логгирования данных.
+    > Реализация PSR-3 драйвера логгирования данных.
     
 - [illuminate/container](https://packagist.org/packages/illuminate/container)
-    ?> Реализация PSR-11 контейнера для Laravel Framework.
+    > Реализация PSR-11 контейнера для Laravel Framework.
 
 - [symfony/dependency-injection](https://packagist.org/packages/symfony/dependency-injection)
     > Реализация PSR-11 контейнера для Symfony Framework.
     
 - [aura/di](https://packagist.org/packages/aura/di)
-    ?> Реализация PSR-11 контейнера для Aura Framework.
+    > Реализация PSR-11 контейнера для Aura Framework.
     
 - [aura/di](https://packagist.org/packages/aura/di)
-    ?> Реализация PSR-11 контейнера для Aura Framework.
+    > Реализация PSR-11 контейнера для Aura Framework.
     
 - [php-di/php-di](https://packagist.org/packages/php-di/php-di)
-    ?> Реализация PSR-11 framework-agnostic (т.е. независимого) контейнера.
+    > Реализация PSR-11 framework-agnostic (т.е. независимого) контейнера.
 
 ## Статус
 
