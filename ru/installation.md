@@ -27,28 +27,14 @@
 
 ### Laravel
 
-Railt поддерживает Laravel следующих версий: `5.1 LTS`, `5.2`, `5.3`, `5.4` и `5.5 LTS`.
-
-#### Laravel 5.5 or greater
+Railt поддерживает Laravel следующих версий: `5.5 LTS` и выше. 
 
 - `composer require railt/laravel-provider`
-- `php artisan vendor:publish --tag=railt`
-
-#### Laravel 5.4 or less
-
-- `composer require railt/laravel-provider`
-- Add the service provider to your app/config/app.php file:
-```php
-'providers' => [
-    // ...
-    Railt\LaravelProvider\RailtServiceProvider::class,
-]
-```
 - `php artisan vendor:publish --tag=railt`
 
 ### Symfony 
 
-Railt поддерживает Symfony следующих версий: `2.7 LTS`, `2.8 LTS`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4 LTS`, `4.0`.
+Railt поддерживает Symfony следующих версий: `2.8 LTS` и выше.
 
 - `composer require railt/symfony-bundle`
 
@@ -71,10 +57,31 @@ Railt поддерживает Symfony следующих версий: `2.7 LTS
     
 ## Статус
 
-| Название                  | Status        | Coverage      | Quality Score | Release |
-|---------------------------|---------------|---------------|---------------|---------|
-| `railt/railt`             | ![Build Status](https://travis-ci.org/railt/railt.svg?branch=master)            | ![Code Coverage](https://scrutinizer-ci.com/g/railt/railt/badges/coverage.png?b=master) | ![Quality Score](https://scrutinizer-ci.com/g/railt/railt/badges/quality-score.png?b=master) | ![Latest Stable Version](https://poser.pugx.org/railt/railt/version) |
-| `railt/webonyx-adapter`   | ![Build Status](https://travis-ci.org/railt/webonyx-adapter.svg?branch=master)  | ![Code Coverage](https://scrutinizer-ci.com/g/railt/webonyx-adapter/badges/coverage.png?b=master) | ![Quality Score](https://scrutinizer-ci.com/g/railt/webonyx-adapter/badges/quality-score.png?b=master) | ![Latest Stable Version](https://poser.pugx.org/railt/webonyx-adapter/version) |
-| `railt/youshido-adapter`  | ![Build Status](https://travis-ci.org/railt/youshido-adapter.svg?branch=master) | ![Code Coverage](https://scrutinizer-ci.com/g/railt/youshido-adapter/badges/coverage.png?b=master) | ![Quality Score](https://scrutinizer-ci.com/g/railt/youshido-adapter/badges/quality-score.png?b=master) | ![Latest Stable Version](https://poser.pugx.org/railt/youshido-adapter/version) |
-| `railt/laravel-provider`  | ![Build Status](https://travis-ci.org/railt/laravel-provider.svg?branch=master) | ![Code Coverage](https://scrutinizer-ci.com/g/railt/laravel-provider/badges/coverage.png?b=master) | ![Quality Score](https://scrutinizer-ci.com/g/railt/laravel-provider/badges/quality-score.png?b=master) | ![Latest Stable Version](https://poser.pugx.org/railt/laravel-provider/version) |
-| `railt/symfony-bundle`    | ![Build Status](https://travis-ci.org/railt/symfony-bundle.svg?branch=master)   | ![Code Coverage](https://scrutinizer-ci.com/g/railt/symfony-bundle/badges/coverage.png?b=master) | ![Quality Score](https://scrutinizer-ci.com/g/railt/symfony-bundle/badges/quality-score.png?b=master) | ![Latest Stable Version](https://poser.pugx.org/railt/symfony-bundle/version) |
+### Пакеты
+
+Пакеты - это самостоятельные composer библиотеки, которые требуют `railt/railt` 
+в зависимостях для адаптации приложения под какой-то фреймворк или приложение. 
+Помимо этого это могут быть какие-то дополнительные возможности и функционал, который 
+не обязательно требуется основному приложению и просто расширяет возможности.
+
+| Название                  | Последняя стабильная версия                                                      |
+|---------------------------|----------------------------------------------------------------------------------|
+| `railt/railt`             | ![Latest Stable Version](https://poser.pugx.org/railt/railt/version)             |
+| `railt/laravel-provider`  | ![Latest Stable Version](https://poser.pugx.org/railt/laravel-provider/version)  |
+| `railt/symfony-bundle`    | ![Latest Stable Version](https://poser.pugx.org/railt/symfony-bundle/version)    |
+
+### Компоненты
+
+Компонетны - это составные библиотеки ядра, объединяющие приложение в одно целое.
+
+| Название                  | Последняя стабильная версия                                                      |
+|---------------------------|----------------------------------------------------------------------------------|
+| `railt/compiler`          | ![Latest Stable Version](https://poser.pugx.org/railt/compiler/version)          |
+| `railt/sdl`               | ![Latest Stable Version](https://poser.pugx.org/railt/sdl/version)               |
+| `railt/storage`           | ![Latest Stable Version](https://poser.pugx.org/railt/storage/version)           |
+| `railt/reflection`        | ![Latest Stable Version](https://poser.pugx.org/railt/reflection/version)        |
+| `railt/container`         | ![Latest Stable Version](https://poser.pugx.org/railt/container/version)         |
+| `railt/events`            | ![Latest Stable Version](https://poser.pugx.org/railt/events/version)            |
+| `railt/http`              | ![Latest Stable Version](https://poser.pugx.org/railt/http/version)              |
+| `railt/webonyx-adapter`   | ![Latest Stable Version](https://poser.pugx.org/railt/webonyx-adapter/version)   |
+| `railt/youshido-adapter`  | *Not planned yet :3*  |
