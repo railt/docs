@@ -1,3 +1,8 @@
+- ## Язык
+    - [Общая информация](/sdl/common)
+    - [Комментарии](/sdl/comments)
+    - [Предопределённые типы](/sdl/reserved)
+    
 - ## Типы
     - [Schema](/sdl/schema)
     - [Object](/sdl/object)
