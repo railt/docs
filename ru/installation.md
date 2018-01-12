@@ -17,35 +17,11 @@
 
 Для установки вам потребуется [Composer](https://getcomposer.org/download/).
 
-?> Railt не умеет принимамать GraphQL запросы и полагается на существующие 
-реализации, в частности [Webonyx](https://github.com/webonyx/graphql-php) и 
-[Youshido](https://github.com/Youshido/GraphQL).
+?> Railt не умеет принимамать GraphQL запросы самостоятельно и полагается на существующие 
+реализации, в частности [Webonyx](https://github.com/webonyx/graphql-php).
 
-Установка ядра:
+Для установки потребуется всего лишь выполнить одну команду:
 - `composer require railt/railt`
-
-Установка обработчика запросов:
-- `composer require railt/xxx-adapter` (например `railt/webonyx-adapter`)
-
-### Webonyx Adapter
-
-[Webonyx](https://github.com/webonyx/graphql-php) [адаптер](https://github.com/railt/webonyx-adapter) 
-для обработки запросов. Одна из нескольких библиотек ядра, работа без которой невозможна.
-
-Для установки поддержки webonyx, воспользуйтесь следующей командой:
-
-- `composer require railt/webonyx-adapter`
-
-### Youshido Adapter
-
-!> Внимание! В данный момент поддержка этой бибилиотеки не осуществляется. 
-
-[Youshido](https://github.com/Youshido/GraphQL) [адаптер](https://github.com/railt/youshido-adapter) 
-для обработки запросов. Одна из нескольких библиотек ядра, работа без которой невозможна.
-
-Для установки поддержки youshido, воспользуйтесь следующей командой:
-
-- `composer require railt/youshido-adapter`
 
 ## Интеграция
 
