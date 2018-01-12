@@ -10,9 +10,9 @@
     - [Interface](/sdl/interface)
     - [Enum](/sdl/enum)
     - [Union](/sdl/union)
-    - [Directive](/sdl/directive)
+    - ~~[Directive](/sdl/directive)~~
     - [Input](/sdl/input)
-    - [Field](/sdl/field)
-    - [Argument](/sdl/argument)
-    - [Extend](/sdl/extend)
-    - [Модификаторы](/sdl/modifiers)
+    - ~~[Field](/sdl/field)~~
+    - ~~[Argument](/sdl/argument)~~
+    - ~~[Extend](/sdl/extend)~~
+    - [Врапперы (Модификаторы)](/sdl/modifiers)
