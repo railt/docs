@@ -11,7 +11,7 @@
     - [Enum](/sdl/enum)
     - [Union](/sdl/union)
     - ~~[Directive](/sdl/directive)~~
-    - [Input](/sdl/input)
+    - ~~[Input](/sdl/input)~~
     - ~~[Field](/sdl/field)~~
     - ~~[Argument](/sdl/argument)~~
     - ~~[Extend](/sdl/extend)~~
