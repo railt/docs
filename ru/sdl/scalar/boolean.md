@@ -1,10 +1,12 @@
 # Boolean
 
-Булевский скалярный тип предоставляет значение `true` или `false`, 
+Булев тип предоставляет значение `true` или `false`, 
 соответсвующие положительному и отрицательному значению соответственно.
 
 ```graphql
-type Example {
-    fieldName: Boolean 
+type UserCredentials {
+    userName: String! 
+    email: String!
+    isValid: Boolean! # <= true или false 
 }
 ```

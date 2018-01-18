@@ -14,10 +14,8 @@
 ```
 
 ```graphql
-type Example { 
-    # Здесь и далее стоит обратить на указание типа поля.
-    # В данном примере: "Int"
-    fieldName: Int
+type User { 
+    friendsCount: Int!
 }
 ```
 
