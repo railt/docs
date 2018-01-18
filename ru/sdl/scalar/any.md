@@ -19,7 +19,7 @@ type Storage {
 ```graphql
 {
     query1: storage {
-        save(data: {user: 23}) # Сохранем {"user": 23}
+        save(data: {user: 23}) # Сохраняем {"user": 23}
     }
     
     query2: storage {
