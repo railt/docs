@@ -17,7 +17,7 @@ $request = \Railt\Http\Request::create([$parent]);
 // Необязательный аргумент $errors должен содержать список исключений (instance of \Throwable)
 $response = new Resposne([array $data], [array $errors]);
 
-// Формирование ответа в json и его отправка
+// Формирование ответа в JSON и его отправка
 $response->send(); 
 ```
 
@@ -25,8 +25,8 @@ $response->send();
 
 ### Native
 
-По-умолчанию, если не передать опциональный аргумент `$parent` 
-в фектори-метод запроса, то вся информация о запросе берётся из 
+По умолчанию, если не передать опциональный аргумент `$parent` 
+в фабричный метод запроса, то вся информация о запросе берётся из 
 глобальных переменных `$_POST`, `$_GET` и `$_REQUEST` (в порядке приоритета).
 
 ```php
@@ -73,22 +73,22 @@ $request = Request::create($symfonyRequest);
 $query = $request->getQuery();
 
 /**
- * @var array $variables GraphQL переменные (ассоциативный массив)
+ * @var array $variables GraphQL-переменные (ассоциативный массив)
  */
 $variables = $request->getVariables();
 
 /**
- * @var string|null $operation Тип запроса GraphQL. Может содержать строки "query", "mutation" или "subscribtion".
+ * @var string|null $operation Тип запроса GraphQL. Может содержать строки "query", "mutation" или "subscription".
  */
 $operation = $request->getOperation();
 ```
 
 ## Настройки запроса
 
-По-умолчанию, объект запроса использует следующие имена аргументов: 
-- `query` для GraphQL запроса
-- `variables` для GraphQL переменных
-- `operation` для GraphQL метода
+По умолчанию объект запроса использует следующие имена аргументов: 
+- `query` для GraphQL-запроса
+- `variables` для GraphQL-переменных
+- `operation` для GraphQL-метода
 
 Вы можете указать явно какие имена аргументов стоит учитывать.
 

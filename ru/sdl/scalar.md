@@ -43,7 +43,7 @@ interface Mailable {
     email: String!
 }
 
-type User implements Mailable{
+type User implements Mailable {
     id: ID!
     email: Email!
 }
