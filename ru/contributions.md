@@ -46,7 +46,7 @@ Railt придерживается стандартов:
 - [PSR-12](https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md)
 
 Помимо этого ядро поддерживает:
-- Логгирование: [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md)
+- Логирование: [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md)
 - Кеш: [PSR-6](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-6-cache.md)
 - HTTP: [PSR-7](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-7-http-message.md)
 - Контейнер: [PSR-11](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md)
