@@ -36,3 +36,6 @@ type MyObject {
 конструкции, как: `type MyObject implements A {}`. Ключевое слово 
 `implemens` означает реализацию одного или нескольких
  [интерфейсов](/graphql/interface).
+
+## Запросы
+

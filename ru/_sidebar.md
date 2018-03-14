@@ -4,13 +4,10 @@
 - GraphQL
     - [Общая информация](/lang/common)
     - [Синтаксис](/lang/syntax)
-    - [Объявления типов](/lang/types)
+    - [Система типов](/lang/types)
     - [Комментарии](/lang/comments)
     - Типы
-        - Schema
-            - [Запросы](/sdl/schema/query)
-            - [Мутации](/sdl/schema/mutation)
-            - ~~[Подписки](/sdl/schema/subscription)~~
+        - [Schema](/sdl/schema)
         - [Object](/sdl/object)
         - Scalar
             - [ID](/sdl/scalar/id)
