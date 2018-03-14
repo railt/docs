@@ -1,5 +1,0 @@
-- ## Диалект
-    - [Алгебраические типы](/sdl-improvements/algebraic-types)
-    - [~~Дженерики~~](/sdl-improvements/generics)
-    - [~~Наследование скаляров~~](/sdl-improvements/scalar-exetnding)
-    - [~~Значения по-умолчанию для директив~~](/sdl-improvements/directive-defaults)

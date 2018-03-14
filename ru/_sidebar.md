@@ -1,20 +1,48 @@
-- ## С чего начать
+- С чего начать
     - [Описание](/README)
     - [Установка](/installation)
-- ## GraphQL
-    - [Schema Type Definition](/sdl)
-    - ~~[GraphQL](/graphql)~~
-- ## Основы
+- GraphQL
+    - [Общая информация](/lang/common)
+    - [Синтаксис](/lang/syntax)
+    - [Объявления типов](/lang/types)
+    - [Комментарии](/lang/comments)
+    - Типы
+        - Schema
+            - [Запросы](/sdl/schema/query)
+            - [Мутации](/sdl/schema/mutation)
+            - ~~[Подписки](/sdl/schema/subscription)~~
+        - [Object](/sdl/object)
+        - Scalar
+            - [ID](/sdl/scalar/id)
+            - [Int](/sdl/scalar/int)
+            - [Float](/sdl/scalar/float)
+            - [String](/sdl/scalar/string)
+            - [Boolean](/sdl/scalar/boolean)
+            - [Any](/sdl/scalar/any)
+            - [DateTime](/sdl/scalar/date-time)
+        - [Enum](/sdl/enum)
+        - [Interface](/sdl/interface)
+        - [Union](/sdl/union)
+        - ~~[Directive](/sdl/directive)~~
+        - ~~[Input](/sdl/input)~~
+        - ~~[Field](/sdl/field)~~
+        - ~~[Argument](/sdl/argument)~~
+        - ~~[Extend](/sdl/extend)~~
+        - [Врапперы (Модификаторы)](/sdl/modifiers)
+- Основы
     - ~~[Рефлексия](/reflection)~~
     - [Запрос и Ответ](/http)
-    - ~~[Роутинг](/routes)~~
     - ~~[Контроллеры](/controllers)~~
-    - ~~[Декораторы](/decorators)~~
-    - ~~[Плагины](/plugins)~~
-- ## Интеграция
+    - ~~[Контейнер](/container)~~
+    - Расширения
+        - ~~[Создание](/extensions)~~
+        - ~~[Роутинг](/routes)~~
+        - ~~[Маппинг](/mappers)~~
+- Интеграция
     - ~~[Laravel](/laravel)~~
     - ~~[Symfony](/symfony)~~
-- ## Суффикс
+- Прочее
     - [Грамматика](/grammar)
     - [Участие в разработке](/contributions)
+    - [Рекомендации оформления кода](/codestyle)
     - ~~[Адаптеры](/adapters)~~

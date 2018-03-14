@@ -2,13 +2,11 @@
 
 ## Системные требования
 
-Эта библиотека основана на современных концепциях PHP 7 кода и может
-отличаться в приведенных примерах вашим «представлениям кода».
-Не бойтесь - это не означает, что вы не можете использовать знакомые подходы
-к разработке программного обеспечения =)
-
 - **PHP 7.1+**
     - `ext-mbstring` - поддержка многобайтовой кодировки (`UTF-8`)
+    - `ext-json` - поддержа работы с JSON.
+    - `ext-pcre` - поддержка Perl Compatible Regular Expressions (PCRE).
+    - `ext-spl` - стандартная бибилиотека PHP.
     
 - **Composer**
 > Руководство по установке Composer [можно найти здесь](https://getcomposer.org/download/).
@@ -17,13 +15,13 @@
 
 Для установки вам потребуется [Composer](https://getcomposer.org/download/).
 
-?> Railt не умеет принимамать GraphQL-запросы самостоятельно и полагается на существующие 
-реализации, в частности [Webonyx](https://github.com/webonyx/graphql-php).
-
-Для установки потребуется всего лишь выполнить одну команду:
+Выполните:
 - `composer require railt/railt`
 
-## Интеграция
+> Обратите внимание, что текущая версия - master. Это значит, что minimum 
+stability в composer.json должно быть эквивалентно dev.  
+
+## Фреймворки
 
 ### Laravel
 
@@ -31,17 +29,6 @@ Railt поддерживает Laravel следующих версий: `5.5 LTS
 
 - `composer require railt/laravel-provider`
 - `php artisan vendor:publish --tag=railt`
-
-### Symfony 
-
-Railt поддерживает Symfony следующих версий: `2.8 LTS` и выше.
-
-- `composer require railt/symfony-bundle`
-
-### Agnostic
-
-- `composer require railt/railt`
-- `composer require railt/xxx-adapter`
     
 ## Внешние зависимости
 
@@ -100,7 +87,8 @@ Railt поддерживает Symfony следующих версий: `2.8 LTS
 
 ### Компоненты
 
-Компоненты - это составные библиотеки ядра, объединяющие приложение в одно целое.
+Компоненты - это составные библиотеки ядра, которыми можно пользоваться отдельно, то есть вне зависимости от того, 
+используете вы весь фреймворк или нет.
 
 | Название                  | Последняя стабильная версия                                                      |
 |---------------------------|----------------------------------------------------------------------------------|
@@ -109,7 +97,5 @@ Railt поддерживает Symfony следующих версий: `2.8 LTS
 | `railt/storage`           | ![Latest Stable Version](https://poser.pugx.org/railt/storage/version)           |
 | `railt/reflection`        | ![Latest Stable Version](https://poser.pugx.org/railt/reflection/version)        |
 | `railt/container`         | ![Latest Stable Version](https://poser.pugx.org/railt/container/version)         |
-| `railt/events`            | ![Latest Stable Version](https://poser.pugx.org/railt/events/version)            |
+| ~~`railt/events`~~        | ![Latest Stable Version](https://poser.pugx.org/railt/events/version)            |
 | `railt/http`              | ![Latest Stable Version](https://poser.pugx.org/railt/http/version)              |
-| `railt/webonyx-adapter`   | ![Latest Stable Version](https://poser.pugx.org/railt/webonyx-adapter/version)   |
-| `railt/youshido-adapter`  | *Not planned yet :3*  |
