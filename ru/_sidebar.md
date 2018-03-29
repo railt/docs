@@ -7,7 +7,7 @@
     - [Синтаксис](/lang/syntax)
     - [Система типов](/lang/types)
     - [Комментарии](/lang/comments)
-    - [GraphQL Типы](/sdl/schema)
+    - [RL/SDL](/sdl)
 
 - Основы
     - [Запрос и Ответ](/http)
