@@ -163,10 +163,10 @@ class ExampleController
 | `railt/compiler`          | ![Latest Stable Version](https://poser.pugx.org/railt/compiler/version)          |
 | `railt/sdl`               | ![Latest Stable Version](https://poser.pugx.org/railt/sdl/version)               |
 | `railt/storage`           | ![Latest Stable Version](https://poser.pugx.org/railt/storage/version)           |
-| ~~`railt/reflection`^1~~    | ![Latest Stable Version](https://poser.pugx.org/railt/reflection/version)      |
+| ~~`railt/reflection`<sup>`1`</sup>~~    | ![Latest Stable Version](https://poser.pugx.org/railt/reflection/version)      |
 | `railt/container`         | ![Latest Stable Version](https://poser.pugx.org/railt/container/version)         |
-| ~~`railt/events`^2~~        | ![Latest Stable Version](https://poser.pugx.org/railt/events/version)          |
+| ~~`railt/events`<sup>`2`</sup>~~        | ![Latest Stable Version](https://poser.pugx.org/railt/events/version)          |
 | `railt/http`              | ![Latest Stable Version](https://poser.pugx.org/railt/http/version)              |
 
-- `railt/reflection`^1 - В данный момент пакет временно заморожен и в будущем будет переработан для работы вне ядра приложения.
-- `railt/events`^2 - Система событий была заменена на [`symfony/event-dispatcher`](https://packagist.org/packages/symfony/event-dispatcher)
+- `railt/reflection`<sup>`1`</sup> - В данный момент пакет временно заморожен и в будущем будет переработан для работы вне ядра приложения.
+- `railt/events`<sup>`2`</sup> - Система событий была заменена на [`symfony/event-dispatcher`](https://packagist.org/packages/symfony/event-dispatcher)

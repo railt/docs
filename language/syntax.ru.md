@@ -56,27 +56,34 @@
 RL/SDL содержит набор заранее определённых типов, именуемых также 
 "стандартной библиотекой".
 
-### Скаляры
+### Стандартная библиотека
 
-- [Any<sup>`1`</sup>](/sdl/scalar/any)
-- [Boolean](/sdl/scalar/boolean)
-- [DateTime<sup>`1`</sup>](/sdl/scalar/date-time)
-- [Float](/sdl/scalar/float)
-- [ID](/sdl/scalar/id)
-- [Int](/sdl/scalar/int)
-- [String](/sdl/scalar/string)
+- scalar [Boolean](/language/types/scalar/boolean)
+- scalar [DateTime](/language/types/scalar/date-time)<sup>`1`</sup>
+- scalar [Float](/language/types/scalar/float)
+- scalar [ID](/language/types/scalar/id)
+- scalar [Int](/language/types/scalar/int)
+- scalar [String](/language/types/scalar/string)
+- type [Any](/language/types/any)<sup>`2`</sup>
+- directive [@deprecated](/language/types/directive/deprecated)
 
-### Директивы 
+> <sup>`1`</sup> - Скалярный тип `DateTime` не входит в официальный стандарт SDL.
 
-- ~~[@deprecated](/sdl/directive/deprecated)~~
-- ~~[@use<sup>`2`</sup>](/sdl/directive/use)~~
+> <sup>`2`</sup> - Произвольный тип `Any` не входит в официальный стандарт SDL.
 
-### Перечисления
+### Расширения ядра
 
-- ~~[Scope<sup>`2`</sup>](/sdl/enum/scope)~~
+Приложение Railt добавляет свой набор типов, которые используются во 
+время работы приложения, но не являются частью стандартной бибилиотеки языка.
 
-> <sup>`1`</sup> Эти скалярные типы являются частью актуальной 
-спецификации SDL и не входят в стандарт.
+- directive [@use](/app/integration)
+- enum [Scope](/app/integration)
+- directive [@route](/app/routing)
+- directive [@query](/app/routing)
+- directive [@mutation](/app/routing)
+- directive [@subscription](/app/routing)
+- directive [@relation](/app/routing)
+- directive [@in](/app/mappings)
+- directive [@out](/app/mappings)
 
-> <sup>`2`</sup> Типы являются составной частью Railt и 
-отсутсвуют, как в стандартный бибилиотеке GraphQL SDL.
+ 
