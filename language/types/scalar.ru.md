@@ -36,3 +36,7 @@ type User {
 ## Наследование
 
 ?> TODO Добавить информацию о конструкции `scalar A extends B` и её влиянии на [перегрузку](/language/overriding).
+
+## Дополнение скаляров
+
+?> TODO Добавить информацию об `extend scalar`.
