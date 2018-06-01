@@ -7,7 +7,29 @@
 
 ```graphql
 type User {
-    primaryKey: ID!
-    name: String! 
+    id: ID!
 }
 ```
+
+## Значение для типа ID
+
+В качестве значения для скалярного типа ID внутри RL/SDL программы 
+могут выступать [Int](/language/types/scalar/int), 
+[String](/language/types/scalar/string) или [Float](/language/types/scalar/float). 
+
+```accord
+1            ✓ Допустимое значение 1
+0.4          ✓ Допустимое значение 0.4
+"0xDEADBEEF" ✓ Допустимое значение 0xDEADBEEF
+true         ✕ Семаническая ошибка (Can not cast Boolean to ID)
+TRUE         ✕ Семаническая ошибка (Can not cast EnumValue to ID)
+```
+
+## Сериализация
+
+?> TODO Добавить информацию по приведению PHP типов к GraphQL ID.
+
+## Парсинг
+
+?> TODO Добавить информацию о приведении GraphQL ID к PHP string.
+
