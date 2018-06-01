@@ -45,7 +45,7 @@ input Message {
 
 ```graphql
 input Message {
-    body: String = "\u00B6 - параграф" # Что аналогично строке "¶ - параграф"
+    body: String = "\u00B6 - параграф" # Что аналогично строке '¶ - параграф'
 }
 ```
 
