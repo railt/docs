@@ -117,6 +117,7 @@
 %skip T_COMMENT                #[^\n]*
 %skip T_COMMA                  ,
 
+
 // ==========================================================================
 //                                  DOCUMENT
 // ==========================================================================
@@ -132,6 +133,7 @@ DocumentDefinitions:
     Extension() |
     Definition()
 
+
 //
 // Any name without reserved keywords.
 //
@@ -141,8 +143,8 @@ NameWithoutReserved:
 //
 // Any name includes reserved keywords.
 //
-NameWithReserved
-    : (NameExceptValues() | <T_TRUE> | <T_FALSE> | <T_NULL>) #Name
+NameWithReserved:
+    (NameExceptValues() | <T_TRUE> | <T_FALSE> | <T_NULL>) #Name
 
 //
 // Any name includes reserved keywords but except values: NULL, TRUE and FALSE.
@@ -180,8 +182,18 @@ Variable:
 // regard to the context of the call.
 //
 #TypeName:
-    TypeNamespace() NameWithReserved()
+    GlobalTypeNamespace()?
+    __namespace()
+    NameWithReserved()
 
+__namespace:
+    (
+        NameWithReserved()
+        ::T_NAMESPACE_SEPARATOR::
+    )*
+
+#GlobalTypeNamespace:
+    ::T_NAMESPACE_SEPARATOR::
 
 //
 // Boolean value (true or false)
@@ -234,101 +246,56 @@ __inputPair:
     | Null()
     | List()
 
+
+
 //
-// Documentation
+// Common definitions and partials
 //
 
 Documentation:
     String() #Description
 
-//
-// Return type definition:
-// <code>
-//      - Type
-//      - Type(...)
-//      - Type!
-//      - Type(...)!
-//      - [Type!]
-//      - [Type(...)!]
-//      - [Type]!
-//      - [Type(...)]!
-//      - [Type!]!
-//      - [Type(...)!]!
-// </code>
-//
-
-#ReturnTypeDefinition:
-    __returnListDefinition() |
-    __returnTypeDefinition()
-
-__returnTypeNonNullModifier:
-    <T_NON_NULL>
-    #NonNull
-
-__returnListDefinition:
-    ::T_BRACKET_OPEN::
-        __returnTypeDefinition()
-    ::T_BRACKET_CLOSE::
-        __returnTypeNonNullModifier()?
-    #List
-
-__returnTypeDefinition:
-    (
-        TypeName() __returnTypeDefinitionArguments()? |
-        Variable()
-    )
-    __returnTypeNonNullModifier()?
-    #Type
-
-__returnTypeDefinitionArguments:
-    ::T_PARENTHESIS_OPEN::
-        ArgumentDefinition()*
-    ::T_PARENTHESIS_CLOSE::
-    #TypeArguments
-
-
-//
-// Implementation definition
-//
-
 TypeDefinitionImplements:
-    ::T_IMPLEMENTS:: TypeName() (::T_AND:: TypeName())*
+    ::T_IMPLEMENTS:: TypeInvocation() (::T_AND:: TypeInvocation())*
     #Implements
 
-//
-// Generic definition
-//
-
-GenericArgumentsDefinition:
+#TypeArguments:
     ::T_PARENTHESIS_OPEN::
         __genericArgumentDefinition()*
     ::T_PARENTHESIS_CLOSE::
 
 __genericArgumentDefinition:
     Variable() ::T_COLON:: TypeName()
-    #GenericArgument
+    #TypeArgument
 
-//
-// Argument definition
-//
+#TypeHint
+    : __typeHintList() | __typeHintValue()
+
+__typeHintList
+    : ::T_BRACKET_OPEN:: __typeHintValue() ::T_BRACKET_CLOSE::
+        __typeHintNotNull()?
+    #List
+
+__typeHintValue
+    : TypeInvocation() __typeHintNotNull()?
+
+__typeHintNotNull
+    : ::T_NON_NULL:: #NonNull
+
 
 #ArgumentDefinition:
-        Documentation()?
-    NameWithReserved() ::T_COLON:: ReturnTypeDefinition()
+    Documentation()?
+    NameWithReserved() ::T_COLON:: TypeHint()
         __argumentDefinitionDefaultValue()?
 
 __argumentDefinitionDefaultValue:
     ::T_EQUAL:: Value()
 
-//
-// Field definition
-//
-
 #FieldDefinition:
-        Documentation()?
+    Documentation()?
     NameWithReserved()
-        __fieldDefinitionArguments()?
-    ::T_COLON:: ReturnTypeDefinition()
+    __fieldDefinitionArguments()?
+    ::T_COLON:: TypeHint()
         Directive()*
 
 __fieldDefinitionArguments:
@@ -338,7 +305,12 @@ __fieldDefinitionArguments:
 
 __fieldDefinitionArgument:
     ArgumentDefinition()
-        Directive()*
+    Directive()*
+
+//
+// TypeDefinitions
+//
+
 
 //
 // Directive definition
@@ -369,6 +341,7 @@ __directiveDefinitionLocations:
 __directiveDefinitionLocation:
     NameWithReserved() (::T_OR:: NameWithReserved())*
 
+
 //
 // Enum definition
 //
@@ -393,6 +366,7 @@ __enumDefinitionValue:
     Directive()*
     #EnumValue
 
+
 //
 // Input definition
 //
@@ -415,6 +389,7 @@ __inputDefinitionField:
         Directive()*
     #InputField
 
+
 //
 // Interface definition
 //
@@ -426,7 +401,7 @@ __inputDefinitionField:
 
 InterfaceDefinitionHead:
     ::T_INTERFACE:: TypeName()
-        GenericArgumentsDefinition()?
+        TypeArguments()?
         TypeDefinitionImplements()?
         Directive()*
 
@@ -440,38 +415,6 @@ __interfaceFieldDefinitions:
     FieldDefinition()*
     #FieldDefinitions
 
-//
-// Namespace definition
-//
-
-#NamespaceDefinition:
-    NamespaceDefinitionHead()
-    NamespaceDefinitionBody()?
-
-NamespaceDefinitionHead:
-    ::T_NAMESPACE:: (TypeName() | GlobalNamespace())?
-    DocumentImports()*
-
-NamespaceDefinitionBody:
-    ::T_BRACE_OPEN::
-        DocumentImports()*
-        Definition()*
-    ::T_BRACE_CLOSE::
-    #ChildrenDefinitions
-
-
-//
-// Type namespace prefix
-//
-TypeNamespace:
-    GlobalNamespace()?
-    (
-        NameWithReserved()
-        ::T_NAMESPACE_SEPARATOR::
-    )*
-
-#GlobalNamespace:
-    ::T_NAMESPACE_SEPARATOR::
 
 //
 // Object definition
@@ -484,7 +427,7 @@ TypeNamespace:
 
 ObjectDefinitionHead:
     ::T_TYPE:: TypeName()
-        GenericArgumentsDefinition()?
+        TypeArguments()?
         TypeDefinitionImplements()?
         Directive()*
 
@@ -497,6 +440,7 @@ ObjectDefinitionBody:
 __objectFieldDefinitions:
     FieldDefinition()*
     #FieldDefinitions
+
 
 //
 // Scalar definition
@@ -511,6 +455,8 @@ ScalarDefinitionBody:
 
 __scalarExtends:
     ::T_EXTENDS:: TypeName() #Extends
+
+
 
 //
 // Schema definition
@@ -529,6 +475,7 @@ SchemaDefinitionBody:
 __schemaField:
     NameWithReserved() ::T_COLON:: TypeName()
     #SchemaField
+
 
 //
 // Union definition
@@ -550,7 +497,6 @@ __unionDefinitionTargets:
 
 Definition
     : DirectiveDefinition()
-    | NamespaceDefinition()
     | SchemaDefinition()
     | __typeDefinitions()
 
@@ -566,8 +512,6 @@ __typeDefinitions
     | ObjectDefinition()
     | ScalarDefinition()
     | UnionDefinition()
-
-
 
 //
 // Enum extension
@@ -628,7 +572,6 @@ __objectExtensionVariants:
 #ScalarExtension:
     ::T_EXTEND:: ScalarDefinitionBody()
 
-
 //
 // Schema extension
 //
@@ -643,6 +586,8 @@ __objectExtensionVariants:
 #UnionExtension:
     ::T_EXTEND:: UnionDefinitionBody()
 
+
+
 Extension:
     EnumExtension()      |
     InputExtension()     |
@@ -652,6 +597,8 @@ Extension:
     SchemaExtension()    |
     UnionExtension()
 
+
+
 //
 // Argument invocation
 //
@@ -659,9 +606,11 @@ Extension:
 ArgumentInvocation:
     NameWithReserved() ::T_COLON:: Value()
 
+
 //
 // Directive callee
 //
+
 
 #Directive:
     ::T_DIRECTIVE_AT:: TypeName()
@@ -675,6 +624,28 @@ __directiveInvocationArguments:
 __directiveInvocationArgument:
      ArgumentInvocation()
         #DirectiveArgument
+
+
+//
+// Type definition:
+// <code>
+//      - Type
+//      - Type(...)
+// </code>
+//
+#TypeInvocation
+    : (TypeName() | Variable()) __typeInvocationDefinitionArguments()? // "Type" (...)
+
+
+__typeInvocationDefinitionArguments
+    : ::T_PARENTHESIS_OPEN:: __typeInvocationDefinitionArgument()* ::T_PARENTHESIS_CLOSE:: // "(" ... ")"
+    #TypeInvocationArguments
+
+
+__typeInvocationDefinitionArgument:
+    NameWithReserved() ::T_COLON:: TypeInvocation()
+    #TypeInvocationArgument
+
 
 Invocation:
     Directive()
