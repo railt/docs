@@ -12,10 +12,14 @@ Help to clarify and supplement the page by sending a [Pull Request](https://gith
 Подробнее о каждом событии можно прочитать на [странице документации](/app/events), 
 которая им посвящена. 
 
+## Диаграмма жизненного цикла
+
 Ниже представлена диаграмма жизненного цикла экземпляра Application. Каждый прямоугольник 
 **серого цвета** обозначает событие, происходящее внутри приложения. На события можно 
 подписываться, изменяя внутреннее состояние приложения или останавливать дальнейший 
 цикл работы. Во втором случае приложение попытается следовать поведению по умолчанию. 
 Однако, стоит заметить, это не всегда возможно.
 
-![Lifecycle](https://habrastorage.org/webt/k_/cy/yo/k_cyyo0vjanttfjgg7yangluy60.png)
+<p align="center">
+    <img src="https://habrastorage.org/webt/gi/xo/nf/gixonf2fvgifsp_irawwh9wcu7s.png" alt="Lifecycle" />
+</p>
