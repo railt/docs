@@ -28,13 +28,12 @@
 
 ```php
 <?php
-declare(strict_types=1);
 
 use Railt\Io\File;
-use Railt\SDL\Compiler;
-use Railt\Http\Request;
+use Railt\Http\Factory;
+use Railt\Http\RequestInterface;
 use Railt\Foundation\Application;
-use Railt\Http\Provider\GlobalsProvider;
+use Railt\Foundation\Config\Config;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,27 +60,20 @@ require __DIR__ . '/vendor/autoload.php';
 |
 */
 
-$app = new Application();
+$app = new Application(new Config($debug = true));
 
 //
-// Чтение схемы приложения
+// Создание нового соединения
 //
-$schema = File::fromPathname(__DIR__ . '/schema.graphqls');
+$connection = $app->connect(File::fromPathname(__DIR__ . '/schema.graphqls'));
 
 //
-// Создание запроса из глобальных переменных (т.е. $_GET и $_POST)
+// Создание запросов из глобальных переменных (т.е. $_GET и $_POST) и отправка ответа.
 //
-$request = new Request(new GlobalsProvider());
-
-//
-// Обработка HTTP запроса
-//
-$response = $app->request($schema, $request);
-
-// 
-// Отправка ответа
-//
-$response->send();
+Factory::createFromGlobals()
+    ->through(function (RequestInterface $request) use ($connection) {
+        return $connection->request($request);
+    })->send();
 ```
 
 После создания логики обработки запросов и отправки ответов нам 
@@ -147,26 +139,30 @@ class ExampleController
 Помимо этого могут быть некоторые дополнительные возможности и функционал, который 
 не обязательно требуется основному приложению и просто расширяет возможности.
 
-| Название                  | Последняя стабильная версия                                                      |
-|---------------------------|----------------------------------------------------------------------------------|
-| `railt/railt`             | ![Latest Stable Version](https://poser.pugx.org/railt/railt/version)             |
-| `railt/laravel-provider`  | ![Latest Stable Version](https://poser.pugx.org/railt/laravel-provider/version)  |
-| `railt/symfony-bundle`    | ![Latest Stable Version](https://poser.pugx.org/railt/symfony-bundle/version)    |
+| Название                                                               | Последняя стабильная версия                                                      |
+|------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| [`railt/railt`](https://github.com/railt/railt)                        | [![Latest Stable Version](https://poser.pugx.org/railt/railt/version)](https://packagist.org/packages/railt/railt)                       |
+| [`railt/laravel-provider`](https://github.com/railt/laravel-provider)  | [![Latest Stable Version](https://poser.pugx.org/railt/laravel-provider/version)](https://packagist.org/packages/railt/laravel-provider) |
+| [`railt/symfony-bundle`](https://github.com/railt/symfony-bundle)      | [![Latest Stable Version](https://poser.pugx.org/railt/symfony-bundle/version)](https://packagist.org/packages/railt/symfony-bundle)     |
+| [`railt/carbon-extension`](https://github.com/railt/carbon-extension)  | [![Latest Stable Version](https://poser.pugx.org/railt/carbon-extension/version)](https://packagist.org/packages/railt/carbon-extension) |
 
 ### Компоненты
 
 Компоненты - это составные библиотеки ядра, которыми можно пользоваться отдельно, то есть вне зависимости от того, 
 используете вы весь фреймворк или нет.
 
-| Название                  | Последняя стабильная версия                                                      |
-|---------------------------|----------------------------------------------------------------------------------|
-| `railt/compiler`          | ![Latest Stable Version](https://poser.pugx.org/railt/compiler/version)          |
-| `railt/sdl`               | ![Latest Stable Version](https://poser.pugx.org/railt/sdl/version)               |
-| `railt/storage`           | ![Latest Stable Version](https://poser.pugx.org/railt/storage/version)           |
-| ~~`railt/reflection`<sup>`1`</sup>~~    | ![Latest Stable Version](https://poser.pugx.org/railt/reflection/version)      |
-| `railt/container`         | ![Latest Stable Version](https://poser.pugx.org/railt/container/version)         |
-| ~~`railt/events`<sup>`2`</sup>~~        | ![Latest Stable Version](https://poser.pugx.org/railt/events/version)          |
-| `railt/http`              | ![Latest Stable Version](https://poser.pugx.org/railt/http/version)              |
+| Название                                                               | Последняя стабильная версия                                                      |
+|------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| [`railt/compiler`](https://github.com/railt/compiler)                  | [![Latest Stable Version](https://poser.pugx.org/railt/compiler/version)](https://packagist.org/packages/railt/compiler)                 |
+| [`railt/container`](https://github.com/railt/container)                | [![Latest Stable Version](https://poser.pugx.org/railt/container/version)](https://packagist.org/packages/railt/container)               |
+| [`railt/http`](https://github.com/railt/http)                          | [![Latest Stable Version](https://poser.pugx.org/railt/http/version)](https://packagist.org/packages/railt/http)                         |
+| [`railt/io`](https://github.com/railt/io)                              | [![Latest Stable Version](https://poser.pugx.org/railt/io/version)](https://packagist.org/packages/railt/io)                             |
+| [`railt/reflection`](https://github.com/railt/reflection)              | [![Latest Stable Version](https://poser.pugx.org/railt/reflection/version)](https://packagist.org/packages/railt/reflection)             |
+| [`railt/sdl`](https://github.com/railt/sdl)                            | [![Latest Stable Version](https://poser.pugx.org/railt/sdl/version)](https://packagist.org/packages/railt/sdl)                           |
+| [`railt/storage`](https://github.com/railt/storage)                    | [![Latest Stable Version](https://poser.pugx.org/railt/storage/version)](https://packagist.org/packages/railt/storage)                   |
+| [`railt/lexer`](https://github.com/railt/lexer)                        | [![Latest Stable Version](https://poser.pugx.org/railt/lexer/version)](https://packagist.org/packages/railt/lexer)                       | 
+| [`railt/parser`](https://github.com/railt/parser)                      | [![Latest Stable Version](https://poser.pugx.org/railt/parser/version)](https://packagist.org/packages/railt/parser)                     |
+
 
 - `railt/reflection`<sup>`1`</sup> - В данный момент пакет временно заморожен и в будущем будет переработан для работы вне ядра приложения.
 - `railt/events`<sup>`2`</sup> - Система событий была заменена на [`symfony/event-dispatcher`](https://packagist.org/packages/symfony/event-dispatcher)
