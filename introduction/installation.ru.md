@@ -56,7 +56,7 @@ require __DIR__ . '/vendor/autoload.php';
 |
 | Следующий код загружает приложение и готовит его к использованию, 
 | чтобы мы могли его обработать запрос и отправить ответ обратно в браузер 
-| на радость нашим пользователям.
+| на радость нашим пользователям
 |
 */
 
@@ -68,12 +68,21 @@ $app = new Application(new Config($debug = true));
 $connection = $app->connect(File::fromPathname(__DIR__ . '/schema.graphqls'));
 
 //
-// Создание запросов из глобальных переменных (т.е. $_GET и $_POST) и отправка ответа.
+// Создание запросов из глобальных переменных (т.е. $_GET и $_POST)
 //
-Factory::createFromGlobals()
-    ->through(function (RequestInterface $request) use ($connection) {
-        return $connection->request($request);
-    })->send();
+$requests = Factory::createFromGlobals();
+
+//
+// Каждый обработанный запрос перенаправляем в соединение
+//
+$response = $requests->through(function (RequestInterface $request) use ($connection) {
+    return $connection->request($request);
+});
+
+//
+// Отправляем ответ
+//
+$response->send();
 ```
 
 После создания логики обработки запросов и отправки ответов нам 
