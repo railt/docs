@@ -91,12 +91,12 @@ use Railt\Http\Factory;
 use Railt\Http\Provider\DataProvider;
 
 
-$provider = new DataProvider($_GET, $_POST))
+$provider = (new DataProvider($_GET, $_POST))
   ->withContentType($_SERVER['CONTENT_TYPE'] ?? null)
   ->withBody(file_get_contents('php://input'));
 
 
-foreach (new Factory($provider) as $request) {
+foreach (Factory::create($provider) as $request) {
     var_dump($request);
 }
 ```
