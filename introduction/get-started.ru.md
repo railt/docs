@@ -100,7 +100,9 @@ $factory = Factory::createFromGlobals();
 |
 */
 
-$response = $factory->request($connection);
+$response = $factory->request($connection)
+    // Устанавливаем режим отладки такой же, как и у приложения.
+    ->debug($app->isDebug());
 
 /*
 |--------------------------------------------------------------------------
