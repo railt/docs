@@ -12,9 +12,8 @@
 
 use Railt\Io\File;
 use Railt\Http\Factory;
-use Railt\Http\RequestInterface;
 use Railt\Foundation\Application;
-use Railt\Foundation\Config\Config;
+use Railt\Foundation\Config\Composer;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,11 +36,13 @@ require __DIR__ . '/vendor/autoload.php';
 |
 | Следующий код загружает приложение и готовит его к использованию, 
 | чтобы мы могли его обработать запрос и отправить ответ обратно в браузер 
-| на радость нашим пользователям
+| на радость нашим пользователям.
 |
 */
 
-$app = new Application(new Config($debug = true));
+$app = new Application(true);
+
+$app->configure(Composer::fromDiscovery());
 
 
 /*
@@ -80,7 +81,7 @@ $connection = $app->connect(File::fromPathname(__DIR__ . '/schema.graphqls'));
 |
 */
 
-$requests = Factory::createFromGlobals();
+$factory = Factory::createFromGlobals();
 
 /*
 |--------------------------------------------------------------------------
@@ -98,9 +99,8 @@ $requests = Factory::createFromGlobals();
 | содержит коллекцию из нескольких.
 |
 */
-$response = $requests->through(function (RequestInterface $request) use ($connection) {
-    return $connection->request($request);
-});
+
+$response = $factory->request($connection);
 
 /*
 |--------------------------------------------------------------------------
