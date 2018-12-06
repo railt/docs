@@ -28,6 +28,8 @@
 }
 ```
 
+Подробнее о Discovery можно прочитать на странце [конфигурации приложения](app/configuration#discovery).
+
 ?> Обратите внимание, что текущая версия - `master`. Это значит, что `minimum-stability` 
 в composer.json должно быть эквивалентно dev.
 
