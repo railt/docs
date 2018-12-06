@@ -17,6 +17,17 @@
 Выполните:
 - `composer require railt/railt`
 
+Для того, чтобы иметь возможность подключать компоненты без 
+ручного конфигурирования приложения - имеет смысл добавить команду в `composer.json`:
+
+```json
+"scripts": {
+    "post-autoload-dump": [
+        "Railt\\Discovery\\Manifest::discover"
+    ]
+}
+```
+
 ?> Обратите внимание, что текущая версия - `master`. Это значит, что `minimum-stability` 
 в composer.json должно быть эквивалентно dev.
 
