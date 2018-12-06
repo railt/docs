@@ -124,79 +124,18 @@ foreach (Factory::createFromGlobals() as $request) {
 ### PSR-7 провайдер
 
 В том случае, когда за взаимодействие с HTTP отвечает PSR-совместимый интерфейс, 
-например, в Zend Framework - требуется реализовать свой источник данных. 
-Для этого стоит создать собственную реализацию `Railt\Http\Provider\ProviderInterface`, 
-которая будет предоставлять требуемый набор переменных окружения обработчику.
-
-```php
-<?php
-
-use Railt\Http\Provider\ProviderInterface;
-use Psr\Http\Message\ServerRequestInterface;
-
-class PSR7Provider implements ProviderInterface
-{
-    /** 
-     * @var ServerRequestInterface 
-     */
-    private $request;
-    
-    /**
-     * @param ServerRequestInterface $request
-     */
-    public function __construct(ServerRequestInterface $request) 
-    {
-        $this->request = $request;
-    }
-
-    /**
-     * Метод должен вернуть набор query (или GET) аргументов.
-     * @return array
-     */
-    public function getQueryArguments(): array
-    {
-        return $this->request->getQueryParams();
-    }
-
-    /**
-     * Метод должен вернуть набор body (или POST) аргументов.
-     * @return array
-     */
-    public function getPostArguments(): array
-    {
-        return $this->request->getBodyParams();
-    }
-
-    /**
-     * Метод должен вернуть информацию о заголовке Content-Type, 
-     * если эта информация была передана.
-     * @return string|null
-     */
-    public function getContentType(): ?string
-    {
-        return $this->request->getHeaderLine('Content-Type');
-    }
-
-    /**
-     * Метод должен вернуть содержимое тела запроса. 
-     * @return string
-     */
-    public function getBody(): string
-    {
-        return (string)$this->request->getBody();
-    }
-}
-```
-
-Для воспроизведения логики из выбранного источника данных 
-достаточно передать его в качестве аргумента фабрики:
+например, в Zend Framework - требуется воспользоваться PSR реализацией 
+источника данных.
 
 ```php
 <?php
 
 use Railt\Http\Factory;
+use Railt\Http\Provider\Psr7Provider;
 
-foreach (Factory::create(new PSR7Provider($psr7Request)) as $request) {
+$requests = Factory::create(new Psr7Provider($psr7Request));
+
+foreach ($requests as $request) {
     // 
 }
 ```
