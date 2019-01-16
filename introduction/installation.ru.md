@@ -8,13 +8,13 @@
 - `ext-pcre` - поддержка Perl Compatible Regular Expressions (PCRE).
 - `ext-spl` - стандартная бибилиотека PHP.
 
-Большинство из этих расширений доступны в стандартной поставке языка.
+?> Большинство из этих расширений доступны в стандартной поставке языка.
 
 ## Установка
 
 Для установки вам потребуется [Composer](https://getcomposer.org/download/).
 
-> Руководство по установке и работе с Composer [можно найти здесь](https://getcomposer.org/download/).
+?> Руководство по установке и работе с Composer [можно найти здесь](https://getcomposer.org/download/).
 
 - Создать `composer.json`, если его нет.
 - Добавить в `extra` секцию `composer.json` команду `Railt\\Discovery\\Manifest::discover`:
