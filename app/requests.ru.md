@@ -6,20 +6,166 @@ Help to clarify and supplement the page by sending a [Pull Request](https://gith
 Railt предоставляет библиотеку [`railt/http`](https://github.com/railt/http) 
 для обработки входящих GraphQL запросов.
 
-> Стоит заметить, что в рамках GraphQL присутсвует термин Query, обозначающий 
+> Стоит заметить, что в рамках GraphQL присутствует термин Query, обозначающий 
 запрос к серверу для получения данных. Однако, определение Request - тоже 
 именуется в русском языке как "запрос". В рамках этой документации 
 "запросами" будут именоваться именно Request объекты, а Query останутся "как есть", 
 т.е. без русскоязычного аналога.
 
+## Запросы и Соединения
+
+Соединения - это объект, содержащий информацию о клиенте. 
+В рамках HTTP запроса на каждый клиент приходится один запрос и один ответ.
+После этого соединение закрывается, а ответ транслирутся клиенту:
+
+```php
+<?php
+
+$app = new \Railt\Foundation\Application();
+
+$connection = $app->connect(\Railt\Io\File::fromPathname('./schema.graphql'));
+
+// Далее работаем в рамках созданного соединения
+
+$response = $connection->request(new \Railt\Http\Request('{ graphq { query } }'));
+
+$response->send();
+
+// После ответа соединение можно закрыть, однако это не обязательно
+
+$connection->close();
+```
+
+Любая синхронная система "запрос-ответ" крайне удобна при работе с GraphQL 
+`Query` и `Mutation`. Однако, в случае с `Subscription` (подписками) требуется 
+реализация "запрос-ответ-ответ-...", где ответов от сервера может вообще не быть, а может 
+быть больше одного. Для реализации подписок можно воспользоваться методом `listen`:
+
+```php
+$request = new \Railt\Http\Request('{ graphq { query } }');
+
+$connection->listen($request, function (ResponseInterface $response) {
+    // ...
+});
+```
+
+?> Для реализации типовой реализации подписок поверх WebSocket`Sec-WebSocket-Protocol: graphql-ws`,
+которую предоставляет, например, Apollo - можно воспользоваться реализацией 
+`Railt\Foundation\Subscription\GraphQLWSLifecycle`, однако в данный момент мы пока пропустим описание работы с ним.
+
 ## Создание запроса
 
-В самом простом виде, для создания нового GraphQL запроса к нашему приложению на 
-получение информации о `users` надо просто инстаниировать объект `Request` и 
-передать ему нужные аргументы конструктора.
+В подавляющем большинстве случаев сервер работает по принципу cgi, т.е. один 
+запрос - один инстанс приложения, а значит вся информация о запросе содержится в 
+`$_GET`, `$_POST` переменных и теле запроса (стрим `php://input`). В рамках инстанаса 
+PHP приложения эти переменные называются "глобальными переменными".
 
-Сам GraphQL запрос на данном этапе никак не проверяется на корректность, 
-в том числе и синтаскическую и может содержать произвольные строковые данные.
+Для того, чтобы автоматизировать построение запроса (или набор запросов) из глобального 
+состояния приложения просто воспользуйтесь методом `createFromGlobals`.
+
+```php
+<?php
+
+use Railt\Http\Factory;
+
+foreach (Factory::createFromGlobals() as $request) {
+    // 
+}
+```
+
+### Передача запроса
+
+Мы можем получить коллекцию запросов и вручную передать их приложению:
+
+```php
+<?php
+
+use Railt\Http\Factory;
+
+foreach (Factory::createFromGlobals() as $request) {
+    $response = $connection->request($request);
+}
+```
+
+Однако тут возникают некоторые сложности:
+- В том случае, если запрос не является корректным GraphQL запросом - коллекция будет пустой и 
+надо будет вручную сформировать ответ с информацией об ошибке.
+- В том случае, если запрос содержит одну из вариаций "Apollo-батчинга" (т.е. больше одного запроса), 
+содержащую несколько GraphQL обращений к серверу, то требуется сформировать соответсвующий ответ, 
+который будет также возвращать коллекцию ответов.
+
+Для упрощения работы с этой типовой логикой в классе `Factory` присутсвует метод `request`, 
+принимающий объект соединения в качестве второго аргумента.
+
+```php
+$response = Factory::createFromGlobals()->request($connection);
+```
+
+В случае реализации для GraphQL subscriptions - можно воспользоваться аналогичным методом `listen`:
+
+```php
+$factory = Factory::createFromGlobals();
+
+$factory->listen($connection, function (ResponseInterface $response) {
+    //
+});
+```
+
+### Провайдеры данных 
+
+Для обработки запросов по станадртной логике используется класс `Railt\Http\Factory`, 
+который анализирует окружение из переданного провайдера (источника данных), 
+возвращает коллекцию запросов, может перенаправлять их нужному обработчику и 
+возвращать соответсвующий ответ сервера.
+
+Конструктор фабрики (или статичный метод `create`) содержит один аргумент - это источник 
+данных для анализа, который  должен реализовывать `Railt\Http\Provider\ProviderInterface`.
+
+```php
+<?php
+
+use Railt\Http\Factory;
+use Railt\Http\Provider\DataProvider;
+
+
+$provider = (new DataProvider($_GET, $_POST))
+  ->withContentType($_SERVER['CONTENT_TYPE'] ?? null)
+  ->withBody(file_get_contents('php://input'));
+
+
+foreach (Factory::create($provider) as $request) {
+    var_dump($request);
+}
+```
+
+### PSR-7 провайдер
+
+В том случае, когда за взаимодействие с HTTP отвечает PSR-совместимый интерфейс, 
+например, в Zend Framework - требуется воспользоваться PSR реализацией 
+источника данных.
+
+```php
+<?php
+
+use Railt\Http\Factory;
+use Railt\Http\Provider\Psr7Provider;
+
+$requests = Factory::create(new Psr7Provider($psr7Request));
+
+foreach ($requests as $request) {
+    // 
+}
+```
+
+## Работа с Request
+
+Вы можете самостоятельно создать объект `Request`, передав вручную 
+нужные ему параметры. В самом простом виде, для создания нового запроса 
+к нашему приложению на получение информации о `users` достаточно передать GraphQL
+выражение в качестве первого аргумента конструктора.
+
+Сам GraphQL запрос на данном этапе никак не проверяется на корректность
+(в том числе и синтаксическую) и может содержать произвольные строковые данные.
 
 ```php
 <?php
@@ -61,145 +207,6 @@ $request = new Request('
 Для того, чтобы обновить информацию о выражении - можно воспользоваться 
 методом `$request->withQuery($newGraphQLQuery)`.
 
-## Создание из провайдера
-
-Ручное создание объектов запроса - это довольно проблемное заниятие, т.к. 
-следует предусмотреть несколько разных вариантов передачи данных на сервер, 
-начиная со стандартного варианта: В виде `Content-Type: application/json`, заканчивая
-специфичными: Передачи в качестве `$_GET` аргументов или в формате 
-`Content-Type: multipart/form-data`, применяемом в том случае, когда дополнительно 
-передаётся набор файлов. 
-
-Помимо этого - стоит помнить о том, что весь этот "зоопарк" способов передачи данных 
-может передаваться в формате "батчинга" Apollo (т.е. одновременно содержать несколько 
-GraphQL запросов в рамках одного запроса HTTP).
-
-### Провайдеры данных 
-
-Для обработки запросов по станадртной логике используется класс `Railt\Http\Factory`, 
-который анализирует окружение из переданного провайдера (источника данных), 
-возвращает коллекцию запросов, может перенаправлять их нужному обработчику и 
-возвращать соответсвующий ответ сервера.
-
-Конструктор фабрики (или статичный метод `create`) содержит один аргумент - это источник 
-данных для анализа, который  должен реализовывать `Railt\Http\Provider\ProviderInterface`.
-
-```php
-<?php
-
-use Railt\Http\Factory;
-use Railt\Http\Provider\DataProvider;
-
-
-$provider = (new DataProvider($_GET, $_POST))
-  ->withContentType($_SERVER['CONTENT_TYPE'] ?? null)
-  ->withBody(file_get_contents('php://input'));
-
-
-foreach (Factory::create($provider) as $request) {
-    var_dump($request);
-}
-```
-
-### Провайдер глобальных переменных
-
-В подавляющем большинстве случаев сервер работает по принципу cgi, т.е. один 
-запрос - один инстанс приложения, а значит вся информация о запросе содержится в 
-`$_GET`, `$_POST` переменных и теле запроса (стрим `php://input`). В рамках инстанаса 
-PHP приложения эти переменные называются "глобальными переменными".
-
-Для того, чтобы автоматизировать построение запроса (или набор запросов) из глобального 
-состояния приложения просто воспользуйтесь методом `createFromGlobals`.
-
-```php
-<?php
-
-use Railt\Http\Factory;
-
-foreach (Factory::createFromGlobals() as $request) {
-    // 
-}
-```
-
-### PSR-7 провайдер
-
-В том случае, когда за взаимодействие с HTTP отвечает PSR-совместимый интерфейс, 
-например, в Zend Framework - требуется реализовать свой источник данных. 
-Для этого стоит создать собственную реализацию `Railt\Http\Provider\ProviderInterface`, 
-которая будет предоставлять требуемый набор переменных окружения обработчику.
-
-```php
-<?php
-
-use Railt\Http\Provider\ProviderInterface;
-use Psr\Http\Message\ServerRequestInterface;
-
-class PSR7Provider implements ProviderInterface
-{
-    /** 
-     * @var ServerRequestInterface 
-     */
-    private $request;
-    
-    /**
-     * @param ServerRequestInterface $request
-     */
-    public function __construct(ServerRequestInterface $request) 
-    {
-        $this->request = $request;
-    }
-
-    /**
-     * Метод должен вернуть набор query (или GET) аргументов.
-     * @return array
-     */
-    public function getQueryArguments(): array
-    {
-        return $this->request->getQueryParams();
-    }
-
-    /**
-     * Метод должен вернуть набор body (или POST) аргументов.
-     * @return array
-     */
-    public function getPostArguments(): array
-    {
-        return $this->request->getBodyParams();
-    }
-
-    /**
-     * Метод должен вернуть информацию о заголовке Content-Type, 
-     * если эта информация была передана.
-     * @return string|null
-     */
-    public function getContentType(): ?string
-    {
-        return $this->request->getHeaderLine('Content-Type');
-    }
-
-    /**
-     * Метод должен вернуть содержимое тела запроса. 
-     * @return string
-     */
-    public function getBody(): string
-    {
-        return (string)$this->request->getBody();
-    }
-}
-```
-
-Для воспроизведения логики из выбранного источника данных 
-достаточно передать его в качестве аргумента фабрики:
-
-```php
-<?php
-
-use Railt\Http\Factory;
-
-foreach (Factory::create(new PSR7Provider($psr7Request)) as $request) {
-    // 
-}
-```
 
 ## Переменные
 
@@ -375,7 +382,7 @@ $type = $request->getQueryType();
 
 ### Тип Query
 
-Иетод `isQuery` возвращает `true` в том случае, если основной 
+Метод `isQuery` возвращает `true` в том случае, если основной 
 запрос является выборкой (`query`).
 
 ```php

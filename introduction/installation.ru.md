@@ -27,6 +27,8 @@
     }
 }
 ```
+?> Подробнее о **Discovery** можно прочитать на странце [конфигурации приложения](app/configuration#discovery).
+
 - Выполнить `composer require railt/railt` для установки пакета.
 
 ## Дополнительно
