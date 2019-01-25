@@ -33,7 +33,7 @@ $debug = \getenv('RAILT_DEBUG') ?? false;
 $app = new Railt\Foundation\Application((bool)$debug);
 ```
 
-## Взаимодейтсиве с фреймворками
+## Взаимодействие с фреймворками
 
 Если ваше GraphQL приложение является частью другого фреймворка, вроде 
 Laravel или Symfony, то они предоставляют аналогичные возможности и для 
