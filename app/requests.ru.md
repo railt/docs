@@ -82,9 +82,7 @@ foreach (Factory::createFromGlobals() as $request) {
 
 use Railt\Http\Factory;
 
-foreach (Factory::createFromGlobals() as $request) {
-    $response = $connection->request($request);
-}
+$connection->request(Factory::createFromGlobals());
 ```
 
 Однако тут возникают некоторые сложности:
@@ -93,23 +91,6 @@ foreach (Factory::createFromGlobals() as $request) {
 - В том случае, если запрос содержит одну из вариаций "Apollo-батчинга" (т.е. больше одного запроса), 
 содержащую несколько GraphQL обращений к серверу, то требуется сформировать соответсвующий ответ, 
 который будет также возвращать коллекцию ответов.
-
-Для упрощения работы с этой типовой логикой в классе `Factory` присутсвует метод `request`, 
-принимающий объект соединения в качестве второго аргумента.
-
-```php
-$response = Factory::createFromGlobals()->request($connection);
-```
-
-В случае реализации для GraphQL subscriptions - можно воспользоваться аналогичным методом `listen`:
-
-```php
-$factory = Factory::createFromGlobals();
-
-$factory->listen($connection, function (ResponseInterface $response) {
-    //
-});
-```
 
 ### Провайдеры данных 
 
