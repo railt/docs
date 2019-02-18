@@ -43,7 +43,7 @@ vendor пакету. Для получения списка подключённ
         "discovery": {
             "railt": {
                 "except": [
-                    "railt.extensions.SomeVendor\\ExcludedExampleExtension"
+                    "extensions.SomeVendor\\ExcludedExampleExtension"
                 ]
             }
         }
