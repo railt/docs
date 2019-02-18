@@ -40,10 +40,12 @@ vendor пакету. Для получения списка подключённ
 ```json
 {
     "extra": {
-        "railt": {
-            "extensions:except": [
-                "SomeVendor\\ExcludedExampleExtension"
-            ]
+        "discovery": {
+            "railt": {
+                "except": [
+                    "railt.extensions.SomeVendor\\ExcludedExampleExtension"
+                ]
+            }
         }
     }
 }

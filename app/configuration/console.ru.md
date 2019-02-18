@@ -57,10 +57,12 @@ railt внутри `composer.json`.
 ```json
 {
     "extra": {
-        "railt": {
-            "commands:except": [
-                "App\\Console\\ExampleCommand"
-            ]
+        "discovery": {
+            "railt": {
+                "except": [
+                    "railt.commands.App\\Console\\ExampleCommand"
+                ]
+            }
         }
     }
 }
